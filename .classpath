@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" output="core/target/classes" path="core/src/main/java"/>
+	<classpathentry excluding="application.groovy" kind="src" path="core/src/main/dsl"/>
 	<classpathentry kind="src" output="core/target/classes" path="core/target/generated-sources/entitygenerator"/>
 	<classpathentry kind="src" output="core/target/classes" path="core/target/generated-resources/xdoclet"/>
 	<classpathentry excluding="**" kind="src" output="core/target/classes" path="core/src/main/resources"/>
