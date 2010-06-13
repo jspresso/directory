@@ -2,20 +2,24 @@
 controller ('directory.controller',
 		icon:'directory.png',
 		context:'directory',
-		language:'en',
+		language:'fr',
 		workspaces:['directory.workspace'])
 
 workspace('directory.workspace', 
 		icon:'directory.png') { 
 			
+      filterModule('customer.module',
+        component:'Customer',
+        detailView:'Customer.view')
+    
 			filterModule('contact.module',
     			component:'Contact',
-    			detailView:'contact.view')  
+    			detailView:'Contact.view')  
 			
 			filterModule('category.module',
 					component:'Category') 
 			
 			filterModule('phoneNumber.module',
 					component:'PhoneNumber',
-					moduleView:'phoneNumber.table')          
+					moduleView:'PhoneNumber.table')          
 		}

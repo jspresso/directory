@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-  xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
                       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
-  default-lazy-init="true">
+	default-lazy-init="true">
 
-  <!--
+	<!--
     The workspaces and modules
   -->
-  <!-- Describe your workspaces and modules here. -->
+	<!-- Describe your workspaces and modules here. -->
 
-  <!--
-    The controller
+	<!--
+		The controller <bean id="applicationFrontController"
+		parent="frontController" scope="prototype"> <property name="name"
+		value="directory.name" /> <property name="description"
+		value="directory.description" /> <property name="iconImageURL"
+		value="classpath:com/example/directory/images/icon.png" /> <property
+		name="loginContextName" value="directory" /> <property
+		name="forcedStartingLocale" value="en" /> <property name="workspaces">
+		<list> </list> </property> </bean>
+	-->
 
-  <bean
-    id="applicationFrontController"
-    parent="frontController"
-    scope="prototype">
-    <property
-      name="name"
-      value="directory.name" />
-    <property
-      name="description"
-      value="directory.description" />
-    <property
-      name="iconImageURL"
-      value="classpath:com/example/directory/images/icon.png" />
-    <property
-      name="loginContextName"
-      value="directory" />
-    <property
-      name="forcedStartingLocale"
-      value="en" />
-    <property
-      name="workspaces">
-      <list>
-      </list>
-    </property>
-  </bean>
-    -->
+
+	<bean id="abstractViewFactory" class="org.jspresso.framework.view.AbstractViewFactory"
+		abstract="true">
+		<property name="connectorFactory" ref="connectorFactory" />
+		<property name="modelConnectorFactory" ref="modelConnectorFactory" />
+		<property name="mvcBinder" ref="mvcBinder" />
+		<property name="translationProvider" ref="translationProvider" />
+		<property name="modelCascadingBinder" ref="modelCascadingBinder" />
+		<property name="iconFactory" ref="iconFactory" />
+		<property name="actionFactory" ref="actionFactory" />
+		<property name="lovAction" ref="lovAction" />
+		<property name="openFileAsBinaryPropertyAction" ref="openFileAsBinaryPropertyAction" />
+		<property name="saveBinaryPropertyAsFileAction" ref="saveBinaryPropertyAsFileAction" />
+		<property name="resetPropertyAction" ref="resetPropertyFrontAction" />
+		<property name="binaryPropertyInfoAction" ref="binaryPropertyInfoAction" />
+		<property name="defaultActionMapRenderingOptions" value="LABEL_ICON" />
+	</bean>
 </beans>
