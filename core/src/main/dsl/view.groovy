@@ -4,14 +4,21 @@ border('Customer.view') {
     form (model:'Customer')
   }
   center {
-    border (cascadingModels:true) {
-      north {
-        table (model:'Customer-contacts', actionMap:'masterDetailActionMap')
+    tabs {
+      views {
+        border (cascadingModels:true) {
+          north {
+            table (model:'Customer-contacts', actionMap:'masterDetailActionMap')
+          }
+          center {
+            border (parent:'Contact.view', actionMap:'masterDetailActionMap')
+          }
+        }
       }
-      center {
-        border (parent:'Contact.view', actionMap:'masterDetailActionMap')
+      views {
+        table (model:'Customer-addresses', actionMap:'masterDetailActionMap')
       }
-    }
+    }   
   }
 }
 
@@ -22,6 +29,7 @@ border ('Contact.view',
       }
       center {
         tabs (renderingOptions:'LABEL') {
+          
           views {
             table (model:'Contact-phoneNumbers',
               columns:['type', 'number'],

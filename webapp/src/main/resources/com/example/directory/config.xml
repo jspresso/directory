@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
   default-lazy-init="true">
 
-  <!-- dataSource MySql localhost -->
+  <!-- dataSource MySql localhost 
   <bean
     id="dataSource"
     class="org.apache.commons.dbcp.BasicDataSource">
@@ -22,8 +22,9 @@
       name="password"
       value="maximeh" />
   </bean>
+  -->
   
-  <!-- dataSource Hsql 
+  <!-- dataSource Hsql -->
   <bean
     id="dataSource"
     class="org.apache.commons.dbcp.BasicDataSource"
@@ -41,9 +42,8 @@
       name="password"
       value="" />
   </bean>
-  -->
   
-  <!-- HIBERNATE MYSQL -->
+  <!-- HIBERNATE MYSQL 
   <bean
     id="hibernateSessionFactory"
     parent="abstractHibernateSessionFactory">
@@ -74,8 +74,9 @@
           key="hibernate.jdbc.batch_size">0</prop>
       </props>
     </property>
+  -->  
   
-  <!--  HIBERNATE HSQL 
+  <!--  HIBERNATE HSQL -->
   <bean
     id="hibernateSessionFactory"
     parent="abstractHibernateSessionFactory">
@@ -106,8 +107,6 @@
           key="hibernate.jdbc.batch_size">0</prop>
       </props>
     </property>
-    -->
-    
     
     
     <property

@@ -21,7 +21,6 @@
 		<list> </list> </property> </bean>
 	-->
 
-
 	<bean id="abstractViewFactory" class="org.jspresso.framework.view.AbstractViewFactory"
 		abstract="true">
 		<property name="connectorFactory" ref="connectorFactory" />
@@ -38,4 +37,5 @@
 		<property name="binaryPropertyInfoAction" ref="binaryPropertyInfoAction" />
 		<property name="defaultActionMapRenderingOptions" value="LABEL_ICON" />
 	</bean>
+	
 </beans>

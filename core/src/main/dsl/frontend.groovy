@@ -23,3 +23,9 @@ workspace('directory.workspace',
 					component:'PhoneNumber',
 					moduleView:'PhoneNumber.table')          
 		}
+
+/*    
+bean 'viewFactoryBase', parent:'abstractViewFactory',
+custom: [defaultActionMapRenderingOptions:'LABEL_ICON']
+*/
+  
