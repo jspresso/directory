@@ -14,11 +14,11 @@ border('Customer.view') {
             border (parent:'Contact.view', actionMap:'masterDetailActionMap')
           }
         }
-      }
-      views {
+        
         table (model:'Customer-addresses', actionMap:'masterDetailActionMap')
-      }
-    }   
+        
+      }   
+    }
   }
 }
 
@@ -32,14 +32,14 @@ border ('Contact.view',
           
           views {
             table (model:'Contact-phoneNumbers',
-              columns:['type', 'number'],
-              actionMap:'masterDetailActionMap')
+                columns:['type', 'number'],
+                actionMap:'masterDetailActionMap')
             
             form (model:'Contact', 
-              fields:['comments'], labelsPosition:'NONE', name:'comments')
+                fields:['comments'], labelsPosition:'NONE', name:'comments')
             
             table (model:'Contact-activities',
-              actionMap:'masterDetailActionMap')
+                actionMap:'masterDetailActionMap')
           }
         }
       }

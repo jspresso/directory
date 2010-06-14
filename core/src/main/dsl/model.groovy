@@ -1,5 +1,5 @@
 // Implement your domain here using the SJS DSL.
-Entity('Customer') {
+Entity('Customer', icon:'customer.png') {
   string_64 'customerName', mandatory:true, unicityScope:'name'
   date 'sinceDate', mandatory:true
   text 'comments'
