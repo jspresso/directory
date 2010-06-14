@@ -4,13 +4,12 @@ border('Customer.view') {
     form (model:'Customer')
   }
   center {
-    border (model:'Customer', cascadingModels:true) {
+    border (cascadingModels:true) {
       north {
-        table (model:'Customer-contacts')
+        table (model:'Customer-contacts', actionMap:'masterDetailActionMap')
       }
       center {
-        form (model:'Contact')
-        //border (parent:'Contact.view')
+        border (parent:'Contact.view', actionMap:'masterDetailActionMap')
       }
     }
   }
