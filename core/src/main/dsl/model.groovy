@@ -43,7 +43,7 @@ Entity ('Address', icon:'address.png') {
   string_32 'country', mandatory:true
 }                
 
-Entity ('Activity') {
+Entity ('Activity', icon:'activity.png') {
   string_64 'activityname', mandatory:true
   string_256 'activitydescription' 
 }
