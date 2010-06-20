@@ -1,5 +1,6 @@
 package com.example.directory.development;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,23 +17,20 @@ import com.example.directory.model.Contact;
 import com.example.directory.model.Customer;
 import com.example.directory.model.PhoneNumber;
 
-import edu.emory.mathcs.backport.java.util.Arrays;
-
 /**
  * Persists some test data for the application.
  */
-@SuppressWarnings("unchecked")
 public class TestDataPersister extends AbstractTestDataPersister {
 
   HashMap<String, Category> categories;
   HashMap<String, Activity> activities; 
   HashMap<String, Customer> customers;
   
-  Vector<String> phonetypes = new Vector(
+  Vector<String> phonetypes = new Vector<String>(
       Arrays.asList(new String[] {"mobile", "home", "work"}));
 
   
-  Vector<String> contacts = new Vector(
+  Vector<String> contacts = new Vector<String>(
       Arrays.asList(new String[] {"Slim Elu/Carlos", 
       "Gates/Bill", 
       "Buffer/Warren", 
