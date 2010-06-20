@@ -1,29 +1,31 @@
 // Implement your application view here using the SJS DSL.
-border('Customer.view') {
+border('Customer.view', 
+    actionMap:'beanModuleActionMap') {
   north {
     form (model:'Customer')
   }
   center {
-    tabs {
+    tabs (renderingOptions:'LABEL') {
       views {
         border (cascadingModels:true) {
           north {
             table (model:'Customer-contacts', actionMap:'masterDetailActionMap')
           }
           center {
-            border (parent:'Contact.view', actionMap:'masterDetailActionMap')
+            border (parent:'Contact.readonly.view')
           }
         }
         
-        table (model:'Customer-addresses', actionMap:'masterDetailActionMap')
+        table (model:'Customer-addresses', actionMap:'masterDetailActionMap', )
         
       }   
     }
   }
 }
 
-border ('Contact.view', 
-    actionMap:'beanModuleActionMap') {
+border ('Contact.view', parent:'Contact.readonly.view',  actionMap:'beanModuleActionMap')    
+    
+border ('Contact.readonly.view') {
       north {
         form (model:'Contact', columnCount:2)
       }
@@ -44,6 +46,26 @@ border ('Contact.view',
         }
       }
     }
+
+split_vertical('Category.view', cascadingModels:true) {
+  top {
+    table (validationModel:'Category', parent:'decoratedView', actionMap:'filterableBeanCollectionModuleActionMap') 
+  }
+  bottom {
+    split_horizontal(right:'Category.tree') {
+      left {
+        table (model:'Category-subCategories', actionMap:'masterDetailActionMap')
+      }
+    }
+  }
+}   
+
+tree ('Category.tree', rendered:'categoryname') {
+  subTree ('Category-subCategories.treenode')
+}
+
+treeNode('Category-subCategories.treenode', 
+  rendered:'categoryname')
 
 table ('PhoneNumber.table', 
     parent:'decoratedView', readOnly:true) { 
