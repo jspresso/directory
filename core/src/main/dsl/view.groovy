@@ -25,9 +25,9 @@ border('Customer.view',
 
 border ('Contact.view', parent:'Contact.readonly.view',  actionMap:'beanModuleActionMap')    
     
-border ('Contact.readonly.view') {
+border ('Contact.readonly.view', borderType:'TITLED') {
       north {
-        form (model:'Contact', columnCount:2)
+        form (model:'Contact', columnCount:2, fields:['lastname', 'firstname'])
       }
       center {
         tabs (renderingOptions:'LABEL') {

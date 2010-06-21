@@ -1,3 +1,4 @@
+
 // Implement your domain here using the SJS DSL.
 Entity('Customer', icon:'customer.png', ordering:['customername':'ASCENDING']) {
   string_64 'customername', mandatory:true, unicityScope:'name'
