@@ -87,8 +87,8 @@ public class TestDataPersister extends AbstractTestDataPersister {
     categories = createCategories();
     activities = createActivities();
     
-    //contacts = createContacts();
-    customers = createCustomers();
+    contacts = createContacts();
+    //customers = createCustomers();
     
   }
   
@@ -124,6 +124,13 @@ public class TestDataPersister extends AbstractTestDataPersister {
 
     map.put(name, entity);
     return entity;
+  }
+  
+  private void createContacts() {
+    for (String id : contacts) {
+      Contact entity = createContact(id.substring(0, id.indexOf('/')), id.substring(1+id.indexOf('/')));
+      saveOrUpdate(entity);
+    }
   }
   
   private Contact createContact() {
