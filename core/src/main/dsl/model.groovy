@@ -1,6 +1,15 @@
-
 // Implement your domain here using the SJS DSL.
-Entity('Customer', icon:'customer.png', ordering:['customername':'ASCENDING']) {
+Interface('Traceable',
+  interceptors:'TraceableLifecycleInterceptor',
+  uncloned:['createdTimestamp', 'updatedTimestamp'])
+  {
+    date_time 'createdTimestamp', readOnly:true
+    date_time 'updatedTimestamp', readOnly:true
+  }
+  
+Entity('Customer', icon:'customer.png', 
+    extend:['Traceable'], 
+    ordering:['customername':'ASCENDING']) {
   string_64 'customername', mandatory:true, unicityScope:'name'
   date 'sinceDate', mandatory:true
   text 'comments'
@@ -10,7 +19,9 @@ Entity('Customer', icon:'customer.png', ordering:['customername':'ASCENDING']) {
 }
 
 Entity ('Contact', icon:'user.png', 
-  ordering:['lastname':'ASCENDING']) {
+    extend:['Traceable'], 
+    extension:'ContactExtension',
+    ordering:['lastname':'ASCENDING']) {
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
   text 'comments'
