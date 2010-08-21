@@ -87,7 +87,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
     categories = createCategories();
     activities = createActivities();
     
-    contacts = createContacts();
+    //contacts = createContacts();
     //customers = createCustomers();
     
   }
