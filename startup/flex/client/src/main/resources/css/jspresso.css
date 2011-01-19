@@ -1,0 +1,571 @@
+@font-face {
+  src: local("Arial");
+  fontFamily: ArialBold;
+  fontWeight: bold;
+}
+
+Application {
+	color: #545458;
+	backgroundColor: #545458;
+	backgroundSize:auto;
+  fontFamily: Arial;
+  fontSize: 13;
+}
+
+.applicationBackground{
+	backgroundImage: Embed(source="../images/theme_jspresso.jpg");
+}
+
+.topControlBar{	
+	paddingTop:0;
+	paddingLeft:0;
+	paddingBottom:0;
+	paddingRight:0;
+	verticalAlign:top;
+	horizontalAlign:left;
+	borderAlpha:0;
+	dropShadowEnabled:false;
+}
+
+.topControlBarCanvas{
+	backgroundImage: Embed(source="../images/Logo+deco-top.png");
+}
+
+.quitButton {
+	disabledSkin: Embed(source="../images/quit_button/Button_disabledSkin.png");
+	downSkin: Embed(source="../images/quit_button/Button_downSkin.png");
+	overSkin: Embed(source="../images/quit_button/Button_overSkin.png");
+	upSkin: Embed(source="../images/quit_button/Button_upSkin.png");
+	fontSize:15;	
+	paddingBottom:10;
+	paddingLeft:10;
+	paddingRight:10;
+	paddingTop:0;
+	fontFamily:Arial;
+  fontWeight:bold;
+	textRollOverColor:#024766;
+	textSelectedColor:#8db5c5;
+	color:#404040;
+	icon: Embed(source="../images/icon/close.png");
+}
+
+
+.nextPreviousButtonBar
+{
+	firstButtonStyleName: "nextPreviousButtonBarFirstButton";
+	lastButtonStyleName: "nextPreviousButtonBarLastButton";
+}
+.nextPreviousButtonBarFirstButton
+{
+	disabledSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-firstButton_disabledSkin.png");
+	downSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-firstButton_downSkin.png");
+	overSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-firstButton_overSkin.png");
+	selectedDisabledSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-firstButton_selectedDisabledSkin.png");
+	selectedUpSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-firstButton_selectedUpSkin.png");
+	upSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-firstButton_upSkin.png");
+	paddingLeft:10;
+	paddingRight:10;
+	paddingTop:0;
+}
+.nextPreviousButtonBarLastButton
+{
+	disabledSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-lastButton_disabledSkin.png");
+	downSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-lastButton_downSkin.png");
+	overSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-lastButton_overSkin.png");
+	selectedDisabledSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-lastButton_selectedDisabledSkin.png");
+	selectedUpSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-lastButton_selectedUpSkin.png");
+	upSkin: Embed(source="../images/nextPreviousButtonBar/ButtonBar-lastButton_upSkin.png");
+	paddingLeft:10;
+	paddingRight:10;
+	paddingTop:0;
+}
+
+
+Button.blue
+{
+	disabledSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_disabledSkin");
+	downSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_downSkin");
+	overSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_overSkin");
+	upSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_upSkin");
+	fontFamily:Arial;
+  fontWeight:bold;
+	fontSize:15;
+	color:#FFFFFF;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+	paddingLeft:10;
+	paddingRight:10;
+	paddingTop:2;
+	paddingBottom:2;
+	
+}
+
+Button.withArrow{
+  disabledSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_disabledSkin");
+  downSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_downSkin");
+  overSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_overSkin");
+  upSkin: Embed(source="../images/skin-illustrator/button-bleu2.swf", symbol="Button_upSkin");
+  fontFamily:Arial;
+  fontWeight:bold;
+  fontSize:15;
+  color:#FFFFFF;
+  textRollOverColor:#FFFFFF;
+  textSelectedColor:#FFFFFF;
+  paddingLeft:10;
+  paddingRight:10;
+  paddingTop:2;
+  paddingBottom:2;
+	icon: Embed(source="../images/icon/pictos-btn-bleu.png");
+}
+
+Button.grey
+{
+	disabledSkin: Embed(source="../images/skin-illustrator/button-gris2.swf", symbol="Button_disabledSkin");
+	downSkin: Embed(source="../images/skin-illustrator/button-gris2.swf", symbol="Button_downSkin");
+	overSkin: Embed(source="../images/skin-illustrator/button-gris2.swf", symbol="Button_overSkin");
+	upSkin: Embed(source="../images/skin-illustrator/button-gris2.swf", symbol="Button_upSkin");
+	fontFamily:Arial;
+  fontWeight:bold;
+	/*fontSize:15;*/
+	color:#4B4B4B;
+	textRollOverColor:#4B4B4B;
+	textSelectedColor:#4B4B4B;
+  paddingLeft:10;
+  paddingRight:10;
+  paddingTop:2;
+  paddingBottom:2;
+}
+
+Button.transparent
+{
+	disabledSkin: Embed(source="../images/skin-illustrator/button-transparent.swf", symbol="Button_disabledSkin");
+	downSkin: Embed(source="../images/skin-illustrator/button-transparent.swf", symbol="Button_downSkin");
+	overSkin: Embed(source="../images/skin-illustrator/button-transparent.swf", symbol="Button_overSkin");
+	upSkin: Embed(source="../images/skin-illustrator/button-transparent.swf", symbol="Button_upSkin");
+  fontFamily:Arial;
+  fontWeight:bold;
+	/*fontSize:15;*/
+	color:#FFFFFF;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+  paddingLeft:10;
+  paddingRight:10;
+  paddingTop:2;
+  paddingBottom:2;
+}
+
+
+.leftAccordion{
+	headerStyleName: "leftAccordionHeader";
+	verticalGap:10;
+	backgroundAlpha:0;		
+	borderThickness:0;
+}
+
+.leftAccordionHeader
+{
+  fontFamily:Arial;
+  fontWeight:bold;
+	disabledSkin: Embed(source="../images/left-accordion/AccordionHeader_disabledSkin.png");
+	downSkin: Embed(source="../images/left-accordion/AccordionHeader_downSkin.png");
+	overSkin: Embed(source="../images/left-accordion/AccordionHeader_overSkin.png");	
+	upSkin: Embed(source="../images/left-accordion/AccordionHeader_upSkin.png");
+	selectedOverSkin: Embed(source="../images/left-accordion/AccordionHeader_overSkin.png");
+	selectedUpSkin: Embed(source="../images/left-accordion/AccordionHeader_upSkin.png");
+	selectedDownSkin: Embed(source="../images/left-accordion/AccordionHeader_downSkin.png");
+	selectedDisabledSkin: Embed(source="../images/left-accordion/AccordionHeader_disabledSkin.png");
+	icon: Embed(source="../images/icon/icone-fleche.png");
+	fontSize:16;
+	color:#FFFFFF;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+}
+
+.leftAccordionVerticalHeader{
+  fontFamily:ArialBold;
+	disabledSkin: Embed(source="../images/left-accordion/AccordionHeader_disabledSkin.png");
+	downSkin: Embed(source="../images/left-accordion/AccordionHeader_downSkin.png");
+	overSkin: Embed(source="../images/left-accordion/AccordionHeader_overSkin.png");	
+	upSkin: Embed(source="../images/left-accordion/AccordionHeader_upSkin.png");
+	icon: Embed(source="../images/icon/icone-fleche.png");
+	fontSize:16;
+	color:#FFFFFF;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+	paddingLeft:4;
+	paddingRight:0;
+	paddingTop:0;
+	paddingBottom:0;	
+	textAlign:left;
+    
+}
+
+.accordionContentStyle{
+	icon: Embed(source="../images/icon/icone-fleche.png");
+	backgroundAlpha:0;
+}
+
+.accordionCloseButton {
+	upSkin: Embed(source="../images/icon/fleche-accordion.png");
+	downSkin: Embed(source="../images/icon/fleche-accordion.png");
+	overSkin: Embed(source="../images/icon/fleche-accordion.png");
+	disabledSkin: Embed(source="../images/icon/fleche-accordion.png");
+	icon: ClassReference(null);
+}
+
+.topButtonBar
+{
+	horizontalAlign:center;
+	horizontalGap:0;
+}
+
+Button.top
+{
+	disabledSkin: Embed(source="../images/topPopUpButtonCenter/PopUpButton_disabledSkin.png");
+	downSkin: Embed(source="../images/topPopUpButtonCenter/PopUpButton_downSkin.png");
+	overSkin: Embed(source="../images/topPopUpButtonCenter/PopUpButton_overSkin.png");
+	popUpDownSkin: Embed(source="../images/topPopUpButtonCenter/PopUpButton_popUpDownSkin.png");
+	popUpOverSkin: Embed(source="../images/topPopUpButtonCenter/PopUpButton_popUpOverSkin.png");
+	upSkin: Embed(source="../images/topPopUpButtonCenter/PopUpButton_upSkin.png");
+	popUpGap: -8;
+	paddingRight: 1;
+	arrowButtonWidth: 0;
+	paddingBottom: 10;
+	fontSize:15;
+	paddingBottom: 10;
+  fontFamily:Arial;
+  fontWeight:bold;
+	textRollOverColor:#024766;
+	textSelectedColor:#8db5c5;
+	color:#404040;
+	paddingLeft:10;
+	paddingTop:0;
+	icon: ClassReference(null);	
+}
+
+.topPopUpLeft
+{
+  backgroundImage: Embed(source="../images/topMenuBar/corner-left.png");
+}
+
+.topPopUpRight
+{
+  backgroundImage: Embed(source="../images/topMenuBar/corner-right.png");
+}
+
+Tree
+{
+	borderSkin: Embed(source="../images/Arbre/Tree_borderSkin.png");
+	/*
+  defaultLeafIcon: Embed(source="../images/Arbre/Tree_defaultLeafIcon.png");
+  folderClosedIcon: Embed(source="../images/1pix.png");
+  folderOpenIcon: Embed(source="../images/1pix.png");
+  */
+  defaultLeafIcon: Embed(source="../images/icon/close.png");
+  folderClosedIcon: Embed(source="../images/icon/close.png");
+  folderOpenIcon: Embed(source="../images/icon/close.png");
+  
+	disclosureClosedIcon: Embed(source="../images/Arbre/Tree_disclosureClosedIcon.png");
+	disclosureOpenIcon: Embed(source="../images/Arbre/Tree_disclosureOpenIcon.png");
+	selectionColor:#ffa604;
+	color:#373636;
+	textRollOverColor:#373636;
+	textSelectedColor:#FFFFFF;
+	fontFamily:Arial;
+	fontSize:13;
+	left:7;
+	paddingLeft:20;
+
+}
+.centralViewStack{
+	backgroundImage: Embed(source="../images/background_viewstack.png");
+	backgroundSize:"100%";
+	paddingTop:10;
+	paddingLeft:10;
+	paddingBottom:10;
+	paddingRight:10;
+	borderStyle:solid;
+	cornerRadius:5;
+	backgroundColor:#FFFFFF;
+}
+
+.infoCanvas{
+	backgroundImage: Embed(source="../images/cadre-info-droit.png");
+	backgroundSize:"100%";	
+}
+
+.centralHBox{
+	horizontalGap:0;
+	paddingRight:10;
+	paddingBottom:10;
+	verticalAlign:middle;	
+}
+
+DataGrid
+{
+	columnDropIndicatorSkin: Embed(source="../images/skin-illustrator/gefco-datagrid.swf", symbol="DataGrid_columnDropIndicatorSkin");
+	columnResizeSkin: Embed(source="../images/skin-illustrator/gefco-datagrid.swf", symbol="DataGrid_columnResizeSkin");
+	headerBackgroundSkin: Embed(source="../images/skin-illustrator/gefco-datagrid.swf", symbol="DataGrid_headerBackgroundSkin");
+	headerSeparatorSkin: Embed(source="../images/skin-illustrator/gefco-datagrid.swf", symbol="DataGrid_headerSeparatorSkin");
+	sortArrowSkin: Embed(source="../images/skin-illustrator/gefco-datagrid.swf", symbol="DataGrid_sortArrowSkin");
+	stretchCursor: Embed(source="../images/skin-illustrator/gefco-datagrid.swf", symbol="DataGrid_stretchCursor");
+	fontFamily:Arial;
+	/*fontSize:12;*/
+	alternatingItemColors: #EAEAEA, #FFFFFF;
+	headerStyleName:dataGridHeader;
+	selectionColor:#024766;
+	textSelectedColor:#FFFFFF;
+	color: #5f5f61;
+}
+
+.dataGridHeader{
+	fontFamily:Arial;
+	fontWeight:bold;
+	color:#4B4B4B;
+	/*fontSize:14;*/
+	textAlign:center;
+}
+
+HScrollBar
+{
+	downArrowDisabledSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_downArrowDisabledSkin");
+	downArrowDownSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_downArrowDownSkin");
+	downArrowOverSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_downArrowOverSkin");
+	downArrowUpSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_downArrowUpSkin");
+	thumbDownSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_thumbDownSkin");
+	thumbIcon: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_thumbIcon");
+	thumbOverSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_thumbOverSkin");
+	thumbUpSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_thumbUpSkin");
+	trackDisabledSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_trackDisabledSkin");
+	trackSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_trackSkin");
+	upArrowDisabledSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_upArrowDisabledSkin");
+	upArrowDownSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_upArrowDownSkin");
+	upArrowOverSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_upArrowOverSkin");
+	upArrowUpSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="HScrollBar_upArrowUpSkin");
+	icon: ClassReference(null);
+}
+
+VScrollBar
+{
+	downArrowDisabledSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_downArrowDisabledSkin");
+	downArrowDownSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_downArrowDownSkin");
+	downArrowOverSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_downArrowOverSkin");
+	downArrowUpSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_downArrowUpSkin");
+	thumbDownSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_thumbDownSkin");
+	thumbIcon: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_thumbIcon");
+	thumbOverSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_thumbOverSkin");
+	thumbUpSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_thumbUpSkin");
+	trackDisabledSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_trackDisabledSkin");
+	trackSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_trackSkin");
+	upArrowDisabledSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_upArrowDisabledSkin");
+	upArrowDownSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_upArrowDownSkin");
+	upArrowOverSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_upArrowOverSkin");
+	upArrowUpSkin: Embed(source="../images/skin-illustrator/scroll-bar.swf", symbol="VScrollBar_upArrowUpSkin");
+	icon: ClassReference(null);
+}
+
+.PanelHeader
+{
+  fontFamily: Arial;
+  fontSize:16;
+  fontWeight: bold;
+  color:#4B4B4B;
+}
+
+Panel
+{
+	borderSkin: Embed(source="../images/skin-illustrator/panneau.swf", symbol="Panel_borderSkin");
+	closeButtonDisabledSkin: Embed(source="../images/skin-illustrator/panneau.swf", symbol="Panel_closeButtonDisabledSkin");
+	closeButtonDownSkin: Embed(source="../images/skin-illustrator/panneau.swf", symbol="Panel_closeButtonDownSkin");
+	closeButtonOverSkin: Embed(source="../images/skin-illustrator/panneau.swf", symbol="Panel_closeButtonOverSkin");
+	closeButtonUpSkin: Embed(source="../images/skin-illustrator/panneau.swf", symbol="Panel_closeButtonUpSkin");
+  horizontalAlign:right; 
+  paddingTop:40;
+	paddingRight:5;
+	paddingBottom:5;
+	paddingLeft:5;
+	headerHeight:35;
+	verticalGap:10;
+  titleStyleName: "PanelHeader";
+}
+
+.alertMessage
+{
+  fontFamily: Arial;
+  fontSize: 13;
+  color: #5f5f61;
+}
+
+Alert
+{
+  messageStyleName: "alertMessage";
+  paddingTop: 50;
+  paddingBottom: 15;
+}
+
+TextArea
+{
+	borderSkin: Embed(source="../images/skin-illustrator/texte-area.swf", symbol="TextArea_borderSkin");
+	focusSkin: Embed(source="../images/skin-illustrator/texte-area.swf", symbol="TextArea_focusSkin");
+	color:#4B4B4B;
+  disabledColor:#696969;
+	fontFamily:Arial;
+	cornerRadius:5;
+}
+
+CheckBox
+{
+	disabledIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_disabledIcon");
+	downIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_downIcon");
+	overIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_overIcon");
+	selectedDisabledIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_selectedDisabledIcon");
+	selectedDownIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_selectedDownIcon");
+	selectedOverIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_selectedOverIcon");
+	selectedUpIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_selectedUpIcon");
+	upIcon: Embed(source="../images/skin-illustrator/check-box-gefco.swf", symbol="CheckBox_upIcon");
+	color:#4B4B4B;
+	textRollOverColor:#4B4B4B;
+	textSelectedColor:#4B4B4B;
+	fontFamily:Arial;
+}
+
+
+ComboBox
+{
+	disabledSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_disabledSkin");
+	downSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_downSkin");
+	editableDisabledSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_editableDisabledSkin");
+	editableDownSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_editableDownSkin");
+	editableOverSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_editableOverSkin");
+	editableUpSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_editableUpSkin");
+	overSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_overSkin");
+	upSkin: Embed(source="../images/skin-illustrator/combox-gefco.swf", symbol="ComboBox_upSkin");
+	color:#4B4B4B;
+	textRollOverColor:#4B4B4B;
+	textSelectedColor:#4B4B4B;
+	fontFamily:Arial;
+	icon: ClassReference(null);
+}
+
+RadioButton
+{
+	disabledIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_disabledIcon");
+	downIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_downIcon");
+	overIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_overIcon");
+	selectedDisabledIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedDisabledIcon");
+	selectedDownIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedDownIcon");
+	selectedOverIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedOverIcon");
+	selectedUpIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedUpIcon");
+	upIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_upIcon");
+	color:#4B4B4B;
+	textRollOverColor:#4B4B4B;
+	textSelectedColor:#4B4B4B;
+	fontFamily:Arial;
+}
+
+ToolTip
+{
+  /*borderSkin: Embed(source="../images/skin-illustrator/info-bulle.swf", symbol="ToolTip_borderSkin");*/
+  /*backgroundSize:auto;*/
+  fontFamily: Arial;
+  fontSize: 14;
+  /*color: #5f5f61;*/
+  background-color:#EEEEEE;
+  color:#696969;
+  /*fontSize:15;*/
+  paddingBottom: 5;
+  paddingLeft: 20;
+  paddingRight: 20;
+  paddingTop: 5;
+}
+
+TextInput
+{
+	borderSkin: Embed(source="../images/skin-illustrator/text-input.swf", symbol="TextInput_borderSkin");
+	focusSkin: Embed(source="../images/skin-illustrator/text-input.swf", symbol="TextInput_focusSkin");
+  color:#4B4B4B;
+  disabledColor:#696969;
+	fontFamily:Arial;
+	/*fontSize:15;*/
+}
+
+ColorPicker
+{
+	disabledSkin: Embed(source="../images/colorPicker/ColorPicker_disabledSkin.png");
+	downSkin: Embed(source="../images/colorPicker/ColorPicker_downSkin.png");
+	overSkin: Embed(source="../images/colorPicker/ColorPicker_overSkin.png");
+	upSkin: Embed(source="../images/colorPicker/ColorPicker_upSkin.png");
+	icon: ClassReference(null);
+}
+
+DateChooser
+{
+	nextMonthDisabledSkin: Embed(source="../images/DateChooser/DateChooser_nextMonthDisabledSkin.png");
+	nextMonthDownSkin: Embed(source="../images/DateChooser/DateChooser_nextMonthDownSkin.png");
+	nextMonthOverSkin: Embed(source="../images/DateChooser/DateChooser_nextMonthOverSkin.png");
+	nextMonthUpSkin: Embed(source="../images/DateChooser/DateChooser_nextMonthUpSkin.png");
+	nextYearDisabledSkin: Embed(source="../images/DateChooser/DateChooser_nextYearDisabledSkin.png");
+	nextYearDownSkin: Embed(source="../images/DateChooser/DateChooser_nextYearDownSkin.png");
+	nextYearOverSkin: Embed(source="../images/DateChooser/DateChooser_nextYearOverSkin.png");
+	nextYearUpSkin: Embed(source="../images/DateChooser/DateChooser_nextYearUpSkin.png");
+	prevMonthDisabledSkin: Embed(source="../images/DateChooser/DateChooser_prevMonthDisabledSkin.png");
+	prevMonthDownSkin: Embed(source="../images/DateChooser/DateChooser_prevMonthDownSkin.png");
+	prevMonthOverSkin: Embed(source="../images/DateChooser/DateChooser_prevMonthOverSkin.png");
+	prevMonthUpSkin: Embed(source="../images/DateChooser/DateChooser_prevMonthUpSkin.png");
+	prevYearDisabledSkin: Embed(source="../images/DateChooser/DateChooser_prevYearDisabledSkin.png");
+	prevYearDownSkin: Embed(source="../images/DateChooser/DateChooser_prevYearDownSkin.png");
+	prevYearOverSkin: Embed(source="../images/DateChooser/DateChooser_prevYearOverSkin.png");
+	prevYearUpSkin: Embed(source="../images/DateChooser/DateChooser_prevYearUpSkin.png");
+	rollOverIndicatorSkin: Embed(source="../images/DateChooser/DateChooser_rollOverIndicatorSkin.png");
+	selectionIndicatorSkin: Embed(source="../images/DateChooser/DateChooser_selectionIndicatorSkin.png");
+	todayIndicatorSkin: Embed(source="../images/DateChooser/DateChooser_todayIndicatorSkin.png");
+	color:#5f5f61;
+}
+
+
+DateField
+{
+	disabledSkin: Embed(source="../images/DateChooser/DateField_disabledSkin.png");
+	downSkin: Embed(source="../images/DateChooser/DateField_downSkin.png");
+	overSkin: Embed(source="../images/DateChooser/DateField_overSkin.png");
+	upSkin: Embed(source="../images/DateChooser/DateField_upSkin.png");
+	icon: ClassReference(null);
+}
+
+DateTimeField
+{
+  disabledSkin: Embed(source="../images/DateChooser/DateField_disabledSkin.png");
+  downSkin: Embed(source="../images/DateChooser/DateField_downSkin.png");
+  overSkin: Embed(source="../images/DateChooser/DateField_overSkin.png");
+  upSkin: Embed(source="../images/DateChooser/DateField_upSkin.png");
+  icon: ClassReference(null);
+}
+
+RichTextEditor
+{
+	paddingBottom:50;
+	paddingRight:12;
+	paddingLeft:12;
+}
+
+Tab
+{
+  disabledSkin: Embed(source="../images/skin-illustrator/barre-onglets-gefco.swf", symbol="TabBar-tab_disabledSkin");
+  downSkin: Embed(source="../images/skin-illustrator/barre-onglets-gefco.swf", symbol="TabBar-tab_downSkin");
+  overSkin: Embed(source="../images/skin-illustrator/barre-onglets-gefco.swf", symbol="TabBar-tab_overSkin");
+  upSkin: Embed(source="../images/skin-illustrator/barre-onglets-gefco.swf", symbol="TabBar-tab_upSkin");
+  selectedUpSkin: Embed(source="../images/skin-illustrator/barre-onglets-gefco.swf", symbol="TabBar-tab_selectedUpSkin");
+  selectedDisabledSkin: Embed(source="../images/skin-illustrator/barre-onglets-gefco.swf", symbol="TabBar-tab_selectedDisabledSkin");
+  fontFamily:Arial;
+  fontWeight:bold;
+  color:#4B4B4B;
+  fontSize:14;
+}
+
+/*
+Label
+{
+  fontFamily: Arial;
+  color: #5f5f61;
+}
+*/

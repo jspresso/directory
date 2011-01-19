@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+  layout="absolute"
+  initialize="init()"
+  creationComplete="start()">
+  
+  <mx:Style source="/css/jspresso.css" />
+  
+	<mx:Script>
+		<![CDATA[
+		  import mx.resources.Locale;
+		  import org.jspresso.flex.controller.FlexController;
+		  
+		  private var flexController:FlexController;
+		  
+			private function init():void {
+        flexController = new FlexController(remoteController,
+                                                   new Locale(resourceManager.localeChain[0]).language);
+			}
+			
+			private function start():void {
+        flexController.start();
+			}
+		]]>
+	</mx:Script>
+
+	<mx:RemoteObject id="remoteController" 
+				  destination="remoteController">
+	  <mx:method name="handleCommands"/>
+	  <mx:method name="start"/>
+	</mx:RemoteObject>
+</mx:Application>
