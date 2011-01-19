@@ -26,9 +26,6 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/jspresso-util/jspresso-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/tools-core/tools-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/jspresso-ext-view/jspresso-ext-view">
             <dependency-type>uses</dependency-type>
         </dependent-module>
