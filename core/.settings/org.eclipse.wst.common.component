@@ -6,5 +6,8 @@
         <wb-resource deploy-path="/" source-path="/target/generated-resources/jasperreports"/>
         <wb-resource deploy-path="/" source-path="/target/generated-resources/dsl"/>
         <wb-resource deploy-path="/" source-path="/src/main/dsl"/>
+        <wb-resource deploy-path="/" source-path="/target/generated-sources/entitygenerator"/>
+        <wb-resource deploy-path="/" source-path="/target/generated-resources/xdoclet"/>
+        <wb-resource deploy-path="/" source-path="/src/main/groovy"/>
     </wb-module>
 </project-modules>

@@ -1,12 +1,23 @@
 // Implement your application frontend here using the SJS DSL.
 
-/*
- * The workspaces and modules
- */
+workspace('Campaign.workspace') {
+  
+  filterModule ('Questionnaire.module', 
+    component:'Questionnaire')
+  
+  filterModule ('Campaign.module', 
+    component:'Campaign')
+  
+}
 
 
 controller 'directory.name',
   icon:'icon.png',
   context:'directory',
   language:'en',
-  workspaces:[/*Reference your workspaces here.*/]
+  workspaces:['Campaign.workspace']
+
+  
+bean ('viewFactoryBase', parent:'abstractViewFactory',
+    custom:[defaultActionMapRenderingOptions : 'LABEL_ICON']) // Icons + labels
+  
