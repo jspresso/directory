@@ -6,10 +6,10 @@ border ('Questionnaire.view', actionMap:'beanModuleActionMap') {
   center {
     split_horizontal (cascadingModels:true) {
       left {
-        table (model:'Questionnaire-questions', actionMap:'mapMasterDetailActionMap')
+        table (model:'Questionnaire-questions', actionMap:'masterDetailActionMap')
       }
       right {
-        table (model:'Question-proposals', actionMap:'mapMasterDetailActionMap')
+        table (model:'Question-proposals', actionMap:'masterDetailActionMap')
       }
     }    
   }
