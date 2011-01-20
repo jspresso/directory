@@ -4,7 +4,8 @@ external id:['abstractViewFactory']
 workspace('Campaign.workspace') {
   
   filterModule ('Questionnaire.module', 
-    component:'Questionnaire')
+    component:'Questionnaire', 
+    detailView:'Questionnaire.view')
   
   filterModule ('Campaign.module', 
     component:'Campaign')
