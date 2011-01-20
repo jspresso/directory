@@ -11,7 +11,7 @@ Entity('Customer', icon:'customer.png',
     extend:['Traceable'], 
     ordering:['customername':'ASCENDING']) {
   string_64 'customername', mandatory:true, unicityScope:'name'
-  date 'sinceDate', mandatory:true
+  date 'sinceDate'//, mandatory:true
   text 'comments'
   
   set 'contacts', ref:'Contact'
@@ -29,7 +29,7 @@ Entity ('Contact', icon:'user.png',
   reference 'customer', ref:'Customer', unicityScope:'name', reverse:'Customer-contacts'
   
   set 'phoneNumbers', composition:true, ref:'PhoneNumber'
-  reference 'category', ref:'Category', composition:false
+  reference 'category', ref:'Category', composition:false, reverse:'Category-contacts'
   enumeration 'status', values:['0', '1'], enumName:'contact.status'
   set 'activities', ref:'Activity'    
 }
@@ -47,6 +47,8 @@ Entity ('Category', icon:'usergroup.png') {
   
   set 'subCategories', ref:'Category', composition:false          
   reference 'parentCategory', ref:'Category', reverse:'Category-subCategories'
+  
+  set 'contacts', ref:'Contact'
 }         
 
 Entity ('Address', icon:'address.png') {

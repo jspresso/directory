@@ -70,10 +70,18 @@ treeNode('Category-subCategories.treenode',
 table ('PhoneNumber.table', 
     parent:'decoratedView', readOnly:true) { 
       actionMap {
-        actionList('QUERY') {
+        actionList('QUERY') { 
           action ref:'queryModuleFilterAction'
         }
       }
     }
     
-table ('categorie.statistics.view')    
+border ('Category.statistics.view', cascadingModels:true) {
+  west {
+    table (model:'Category', columns:['categoryname'])
+  }
+  center {
+    table (model:'Category-contacts', columns:['customer.customername', 'lastname', 'firstname'])
+    
+  }
+}    
