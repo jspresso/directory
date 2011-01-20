@@ -15,7 +15,9 @@ Entity ('Proposition') {
 } 
    
 // Campaign
-Entity ('Campaign') {
+Entity ('Campaign', 
+  queryable:['questionnaire', 'status', 'startDate', 'endDate'])
+{
   enumeration 'status', values:['01', '02', '03'], enumName:'compaign.status', mandatory:true // Temporaty, In progress, Finished
   date 'startDate'
   date 'endDate'
