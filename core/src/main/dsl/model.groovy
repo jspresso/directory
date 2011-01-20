@@ -4,10 +4,10 @@ Interface('Traceable',
   uncloned:['createdTimestamp', 'updatedTimestamp'])
   {
     date_time 'createdTimestamp', readOnly:true
-    date_time 'updatedTimestamp', readOnly:true
+    date_time 'updatedTimestamp', readOnly:true 
   }
    
-Entity('Customer', icon:'customer.png', 
+Entity('Customer', icon:'customer.png',  
     extend:['Traceable'], 
     ordering:['customername':'ASCENDING']) {
   string_64 'customername', mandatory:true, unicityScope:'name'
