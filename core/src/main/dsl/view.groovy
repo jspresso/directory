@@ -75,3 +75,5 @@ table ('PhoneNumber.table',
         }
       }
     }
+    
+table ('categorie.statistics.view')    

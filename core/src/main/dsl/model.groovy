@@ -44,7 +44,9 @@ Entity ('PhoneNumber', icon:'phone.png',
 
 Entity ('Category', icon:'usergroup.png') {   
   string_64 'categoryname', mandatory:true  
+  
   set 'subCategories', ref:'Category', composition:false          
+  reference 'parentCategory', ref:'Category', reverse:'Category-subCategories'
 }         
 
 Entity ('Address', icon:'address.png') {
