@@ -1,15 +1,6 @@
+
 // Implement your domain here using the SJS DSL.
-Interface('Traceable',
-  interceptors:'TraceableLifecycleInterceptor', 
-  uncloned:['createdTimestamp', 'updatedTimestamp'])
-  {
-    date_time 'createdTimestamp', readOnly:true
-    date_time 'updatedTimestamp', readOnly:true
-  }
-   
-Entity('Customer', icon:'customer.png', 
-    extend:['Traceable'], 
-    ordering:['customername':'ASCENDING']) {
+Entity('Customer', icon:'customer.png', ordering:['customername':'ASCENDING']) {
   string_64 'customername', mandatory:true, unicityScope:'name'
   date 'sinceDate', mandatory:true
   text 'comments'
@@ -19,9 +10,7 @@ Entity('Customer', icon:'customer.png',
 }
 
 Entity ('Contact', icon:'user.png', 
-    extend:['Traceable'], 
-    extension:'ContactExtension',
-    ordering:['lastname':'ASCENDING']) {
+  ordering:['lastname':'ASCENDING']) {
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
   text 'comments'
@@ -30,7 +19,7 @@ Entity ('Contact', icon:'user.png',
   
   set 'phoneNumbers', composition:true, ref:'PhoneNumber'
   reference 'category', ref:'Category', composition:false
-  enumeration 'status', values:['0', '1'], enumName:'contact.status'
+  enumeration 'status', values:['active', 'inactive'], enumName:'contact.status'
   set 'activities', ref:'Activity'    
 }
 
@@ -51,7 +40,7 @@ Entity ('Address', icon:'address.png') {
   string_256 'street', mandatory:true
   string_128 'city', mandatory:true
   string_16 'zip', mandatory:true
-  string_32 'country', mandatory:true 
+  string_32 'country', mandatory:true
 }                
 
 Entity ('Activity', icon:'activity.png') {

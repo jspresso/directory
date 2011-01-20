@@ -1,8 +1,7 @@
-package com.example.directory.development;
+package com.example.directorydemo.development;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
@@ -11,11 +10,9 @@ import org.jspresso.framework.application.startup.development.AbstractTestDataPe
 import org.jspresso.framework.model.entity.IEntity;
 import org.springframework.beans.factory.BeanFactory;
 
-import com.example.directory.model.Activity;
-import com.example.directory.model.Category;
-import com.example.directory.model.Contact;
-import com.example.directory.model.Customer;
-import com.example.directory.model.PhoneNumber;
+import com.example.directorydemo.model.Category;
+import com.example.directorydemo.model.Contact;
+import com.example.directorydemo.model.PhoneNumber;
 
 /**
  * Persists some test data for the application.
@@ -23,12 +20,9 @@ import com.example.directory.model.PhoneNumber;
 public class TestDataPersister extends AbstractTestDataPersister {
 
   HashMap<String, Category> categories;
-  HashMap<String, Activity> activities; 
-  HashMap<String, Customer> customers;
   
   Vector<String> phonetypes = new Vector<String>(
       Arrays.asList(new String[] {"mobile", "home", "work"}));
-
   
   Vector<String> contacts = new Vector<String>(
       Arrays.asList(new String[] {"Slim Elu/Carlos", 
@@ -85,47 +79,10 @@ public class TestDataPersister extends AbstractTestDataPersister {
   public void persistTestData() {
     
     categories = createCategories();
-    activities = createActivities();
-    
-    //contacts = createContacts();
-    //customers = createCustomers();
+    createContacts();
     
   }
-  
-  private HashMap<String, Customer> createCustomers() {
-    HashMap<String, Customer> map = new HashMap<String, Customer>();
-    
-    createCustomer("Shell", map);
-    createCustomer("Exxon Mobile", map);
-    createCustomer("Wall-Mart", map);
-    createCustomer("BP", map);
-    createCustomer("Total", map);
-    createCustomer("Japan Post Holdings", map);
-    createCustomer("General Electric", map);
-    createCustomer("China National Petroleum Corporation", map);
-    createCustomer("ENI", map);
-    createCustomer("General Motors", map);
-    createCustomer("Allianz", map);
-    
-    saveOrUpdateAll(map.values());
-    return map;
-  }
-  private Customer createCustomer(String name, HashMap<String, Customer> map) {
-    Customer entity = createEntityInstance(Customer.class);
-    entity.setCustomername(name);
-    entity.setComments("This is my comment for " + name + "!");
 
-    int max = 1 + random.nextInt(3);
-    for (int i=0; i<max; i++) {
-      entity.addToContacts(createContact());
-    }
-    
-    entity.setSinceDate(new Date(new Date().getTime() - new Random().nextInt(5000)*1000*3600*24));
-
-    map.put(name, entity);
-    return entity;
-  }
-  
   private void createContacts() {
     for (String id : contacts) {
       Contact entity = createContact(id.substring(0, id.indexOf('/')), id.substring(1+id.indexOf('/')));
@@ -133,29 +90,15 @@ public class TestDataPersister extends AbstractTestDataPersister {
     }
   }
   
-  private Contact createContact() {
-      
-    int i = random.nextInt(contacts.size());    
-    String id = contacts.remove(i);    
-    Contact entity = createContact(id.substring(0, id.indexOf('/')), id.substring(1+id.indexOf('/')));
-
-    saveOrUpdate(entity);
-    return entity;
-  }
   private Contact createContact(String lastname, String firstname) {
     Contact entity = createEntityInstance(Contact.class);
     entity.setFirstname(firstname);
     entity.setLastname(lastname);
     entity.setComments("This is my comment for " + firstname + " " + lastname + "!");
     entity.setCategory(getRandom(categories.values()));
-    entity.setStatus(getRandom("0", "1"));
+    entity.setStatus(getRandom("active", "inactive"));
     
     int max = 1 + random.nextInt(4);
-    for (int i=0; i<max; i++) {
-      entity.addToActivities(getRandom(activities.values()));
-    }
-    
-    max = 1 + random.nextInt(4);
     for (int i=0; i<max; i++) {
       entity.addToPhoneNumbers(createPhoneNumber());
     }
@@ -185,28 +128,6 @@ public class TestDataPersister extends AbstractTestDataPersister {
     Category entity = createEntityInstance(Category.class);
     entity.setCategoryname(name);
     
-    map.put(name, entity);
-    return entity;
-  }
-  
-  private HashMap<String, Activity> createActivities() {
-    HashMap<String, Activity> map = new HashMap<String, Activity>();
-    createActivity("Transport", map);
-    createActivity("Game", map);
-    createActivity("Bank", map); 
-    createActivity("Finance", map); 
-    createActivity("Oil & Gas", map); 
-    createActivity("Electricity", map); 
-    createActivity("Automotive", map); 
-    createActivity("Retail", map);     
-    createActivity("others", map); 
-    saveOrUpdateAll(map.values());
-    return map;
-  }
-  private Activity createActivity(String name, HashMap<String, Activity> map) {
-    Activity entity = createEntityInstance(Activity.class);
-    entity.setActivityname(name);
-    entity.setActivitydescription(name + " description");
     map.put(name, entity);
     return entity;
   }

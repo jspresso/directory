@@ -1,4 +1,4 @@
-package com.example.directory.development;
+package com.example.directorydemo.development;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,11 +11,11 @@ import org.jspresso.framework.application.startup.development.AbstractTestDataPe
 import org.jspresso.framework.model.entity.IEntity;
 import org.springframework.beans.factory.BeanFactory;
 
-import com.example.directory.model.Activity;
-import com.example.directory.model.Category;
-import com.example.directory.model.Contact;
-import com.example.directory.model.Customer;
-import com.example.directory.model.PhoneNumber;
+import com.example.directorydemo.model.Activity;
+import com.example.directorydemo.model.Category;
+import com.example.directorydemo.model.Contact;
+import com.example.directorydemo.model.Customer;
+import com.example.directorydemo.model.PhoneNumber;
 
 /**
  * Persists some test data for the application.
@@ -88,7 +88,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
     activities = createActivities();
     
     //contacts = createContacts();
-    //customers = createCustomers();
+    customers = createCustomers();
     
   }
   
@@ -126,13 +126,6 @@ public class TestDataPersister extends AbstractTestDataPersister {
     return entity;
   }
   
-  private void createContacts() {
-    for (String id : contacts) {
-      Contact entity = createContact(id.substring(0, id.indexOf('/')), id.substring(1+id.indexOf('/')));
-      saveOrUpdate(entity);
-    }
-  }
-  
   private Contact createContact() {
       
     int i = random.nextInt(contacts.size());    
@@ -141,14 +134,14 @@ public class TestDataPersister extends AbstractTestDataPersister {
 
     saveOrUpdate(entity);
     return entity;
-  }
+  } 
   private Contact createContact(String lastname, String firstname) {
     Contact entity = createEntityInstance(Contact.class);
     entity.setFirstname(firstname);
     entity.setLastname(lastname);
     entity.setComments("This is my comment for " + firstname + " " + lastname + "!");
     entity.setCategory(getRandom(categories.values()));
-    entity.setStatus(getRandom("0", "1"));
+    entity.setStatus(getRandom("active", "inactive"));
     
     int max = 1 + random.nextInt(4);
     for (int i=0; i<max; i++) {

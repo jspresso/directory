@@ -1,6 +1,4 @@
 // Implement your application frontend here using the SJS DSL.
-external (id:['abstractViewFactory'])
-
 controller ('directory.controller',
     icon:'directory.png',
     context:'directory',
@@ -33,7 +31,8 @@ workspace('referential.workspace',
       filterModule('activities.module',
           component:'Activity')
     }
-    
-bean ('viewFactoryBase', parent:'abstractViewFactory',
-    custom:[defaultActionMapRenderingOptions : 'LABEL_ICON']) // Icons + labels
-   
+
+/*    
+ bean 'viewFactoryBase', parent:'abstractViewFactory',
+ custom: [defaultActionMapRenderingOptions:'LABEL_ICON']
+ */
