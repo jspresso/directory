@@ -28,7 +28,7 @@ workspace ('statistics.workspace',
 
       collectionModule ('statistics.categories.module',
         component:'Category',
-        moduleView:'Category.statistics.view',
+        moduleView:'CategoryModule.statistics.view',
         entry:'startupStatistics')
       
     }

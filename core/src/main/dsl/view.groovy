@@ -76,7 +76,7 @@ table ('PhoneNumber.table',
       }
     }
     
-border ('Category.statistics.view', cascadingModels:true) {
+border ('CategoryModule.statistics.view', cascadingModels:true, validationModel:'Category') {
   west {
     table (model:'Category', columns:['categoryname'])
   }
