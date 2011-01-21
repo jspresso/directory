@@ -67,15 +67,28 @@ table ('PhoneNumber.table',
     }
   }
 
-border ('CategoryModule.statistics.view', cascadingModels:true, validationModel:'Category') {
-  west {
-    table (columns:['categoryname'])
+evenGrid('Statistics.view') {
+  cells {
+    evenCell {
+      border (cascadingModels:true) {
+        west {
+          table (model:'Statistics-categories', columns:['categoryname'])
+        }
+        center {
+          table (model:'Category-contacts')
+        }
+      }
+    }
+    evenCell {
+      border (cascadingModels:true) {
+        west {
+          table (model:'Statistics-activities', columns:['activityname'])
+        }
+        center {
+          table (model:'Activity-contacts')
+        }
+      }
+    }
   }
-  center {
-    table (model:'Category-contacts', columns:[
-      'customer.customername',
-      'lastname',
-      'firstname'
-    ])
-  }
+
 }

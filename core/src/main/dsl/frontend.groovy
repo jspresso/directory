@@ -26,9 +26,9 @@ workspace('directory.workspace',
 workspace ('statistics.workspace',
     icon:'statistics.png')  {
 
-      collectionModule ('statistics.categories.module',
-        component:'Category',
-        moduleView:'CategoryModule.statistics.view',
+      beanModule ('statistics.module',
+        component:'Statistics',
+        moduleView:'Statistics.view',
         entry:'startupStatistics')
       
     }

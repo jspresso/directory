@@ -21,6 +21,7 @@ Entity('Customer', icon:'customer.png',
 Entity ('Contact', icon:'user.png', 
     extend:['Traceable'], 
     extension:'ContactExtension',
+    rendered:['customer.customername', 'lastname', 'firstname'],
     ordering:['lastname':'ASCENDING']) {
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
@@ -30,8 +31,9 @@ Entity ('Contact', icon:'user.png',
   
   set 'phoneNumbers', composition:true, ref:'PhoneNumber'
   reference 'category', ref:'Category', composition:false, reverse:'Category-contacts'
+  
   enumeration 'status', values:['0', '1'], enumName:'contact.status'
-  set 'activities', ref:'Activity'    
+  set 'activities', ref:'Activity', reverse:'Activity-contacts'    
 }
 
 Entity ('PhoneNumber', icon:'phone.png',
@@ -61,4 +63,12 @@ Entity ('Address', icon:'address.png') {
 Entity ('Activity', icon:'activity.png') {
   string_64 'activityname', mandatory:true
   string_256 'activitydescription' 
+  
+  set 'contacts', ref:'Contact'
 }
+
+Component ('Statistics', icon:'statistics.png') {
+  set 'categories', ref:'Category'
+  set 'activities', ref:'Activity'
+}
+
