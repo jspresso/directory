@@ -23,6 +23,18 @@
       <artifactId>jspresso-tools</artifactId>
       <optional>true</optional>
     </dependency>
+    
+    <!-- 
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-ext-view</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-ext-remote-application</artifactId>
+    </dependency>
+     -->
+        
   </dependencies>
   <profiles>
     <profile>
@@ -229,6 +241,8 @@
                   <arg value="${generator.dest}" />
                   <arg value="-includePackages" />
                   <arg value="com.example.directory.model" />
+                  <arg value="-excludePatterns" />
+                  <arg value="com.example.directory.model.bean.*" />                  
                 </java>
               </tasks>
             </configuration>

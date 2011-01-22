@@ -67,7 +67,7 @@ table ('PhoneNumber.table',
     }
   }
 
-evenGrid('Statistics.view') {
+evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
   cells {
     evenCell {
       border (cascadingModels:true) {

@@ -67,8 +67,13 @@ Entity ('Activity', icon:'activity.png') {
   set 'contacts', ref:'Contact'
 }
 
-Component ('Statistics', icon:'statistics.png') {
-  set 'categories', ref:'Category'
-  set 'activities', ref:'Activity'
+
+namespace('bean') {
+
+  Component ('Statistics', icon:'statistics.png') {
+    set 'categories', ref:'Category', readOnly:true
+    set 'activities', ref:'Activity', readOnly:true
+  }
+  
 }
 
