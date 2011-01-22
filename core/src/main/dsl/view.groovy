@@ -70,7 +70,7 @@ table ('PhoneNumber.table',
 evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
   cells {
     evenCell {
-      border (cascadingModels:true) {
+      border (cascadingModels:true, borderType:'TITLED', icon:'usergroup.png') {
         west {
           polarChart (model:'Statistics-categories',
             pieSeries:'categoryname', label:'categoryname')
@@ -82,9 +82,11 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
       }
     }
     evenCell {
-      border (cascadingModels:true) {
+      border (cascadingModels:true, borderType:'TITLED', icon:'activity.png') {
         west {
-          table (model:'Statistics-activities', columns:['activityname'])
+          polarChart (model:'Statistics-activities',
+            pieSeries:'activityname', label:'activityname')
+          //table (model:'Statistics-activities', columns:['activityname'])
         }
         center {
           table (model:'Activity-contacts')
