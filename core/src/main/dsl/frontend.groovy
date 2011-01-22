@@ -26,7 +26,8 @@ workspace('directory.workspace',
 workspace ('statistics.workspace',
     icon:'statistics.png')  {
 
-      beanModule ('statistics.module',
+      beanModule ('statistics.module', 
+        icon:'statistics.png',
         component:'Statistics',
         moduleView:'Statistics.view',
         entry:'startupStatistics')

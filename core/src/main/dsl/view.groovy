@@ -72,7 +72,9 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
     evenCell {
       border (cascadingModels:true) {
         west {
-          table (model:'Statistics-categories', columns:['categoryname'])
+          polarChart (model:'Statistics-categories',
+            pieSeries:'categoryname', label:'categoryname')
+          //table (model:'Statistics-categories', columns:['categoryname'])
         }
         center {
           table (model:'Category-contacts')

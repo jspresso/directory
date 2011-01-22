@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.jspresso.framework</groupId>
-    <artifactId>jspresso-dependencies</artifactId>
+    <artifactId>jspresso-ext-root</artifactId>
     <version>3.5-SNAPSHOT</version>
   </parent>
   <groupId>com.example.directory</groupId>

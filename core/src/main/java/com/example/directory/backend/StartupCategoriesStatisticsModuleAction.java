@@ -23,13 +23,14 @@ public class StartupCategoriesStatisticsModuleAction extends BackendAction {
     HibernateBackendController controller = (HibernateBackendController)getBackendController(context);
 
     DetachedCriteria criteria = DetachedCriteria.forClass(Activity.class);
-    HashSet<Activity> activities = new HashSet<Activity>(controller.findByCriteria(criteria, EMergeMode.MERGE_EAGER, Activity.class));
+    HashSet<Activity> activities = new HashSet<Activity>(controller.findByCriteria(criteria, EMergeMode.MERGE_KEEP, Activity.class));
 
     criteria = DetachedCriteria.forClass(Category.class);
     criteria.add(Restrictions.isNull("parentCategory"));    
-    HashSet<Category> categories = new HashSet<Category>(controller.findByCriteria(criteria, EMergeMode.MERGE_EAGER, Category.class));
+    HashSet<Category> categories = new HashSet<Category>(controller.findByCriteria(criteria, EMergeMode.MERGE_KEEP, Category.class));
     
     Statistics statistics = new Statistics(categories, activities);
+    
     /*
     @SuppressWarnings("unchecked")
     List<IEntity> categories = (List<IEntity>) controller.getTransactionTemplate().execute(
