@@ -9,14 +9,6 @@
   <artifactId>directory-startup</artifactId>
   <packaging>pom</packaging>
   <name>Example Application - Startup</name>
-  <profiles>
-    <profile>
-      <id>ulc</id>
-      <modules>
-        <module>ulc</module>
-      </modules>
-    </profile>
-  </profiles>
   <modules>
     <module>swing</module>
     <module>wings</module>

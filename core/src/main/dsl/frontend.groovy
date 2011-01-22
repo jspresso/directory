@@ -5,6 +5,7 @@ controller ('directory.controller',
     icon:'directory.png',
     context:'directory',
     language:'fr',
+    actionMap:'mainActionMap',
     workspaces:['directory.workspace', 'statistics.workspace', 'referential.workspace'])
 
 workspace('directory.workspace',
@@ -45,6 +46,18 @@ workspace('referential.workspace',
           component:'Activity')
     }
     
+actionMap('mainActionMap') {
+  actionList ('main') {
+    action ref:'helpAction' 
+  }
+}     
+    
+action ('helpAction', 
+  parent:'staticDisplayUrlFrontAction',
+  name:'help.name',
+  icon: 'help.png',   
+  custom: [baseUrl: 'http://www.jspresso.org'])   
+
 bean ('viewFactoryBase', parent:'abstractViewFactory',
     custom:[defaultActionMapRenderingOptions : 'LABEL_ICON']) // Icons + labels
 

@@ -22,7 +22,7 @@ border ('Contact.view', parent:'Contact.readonly.view',  actionMap:'beanModuleAc
 
 border ('Contact.readonly.view', borderType:'TITLED') {
   north {
-    form (model:'Contact', columnCount:2, fields:['lastname', 'firstname'])
+    form (model:'Contact', columnCount:3, fields:['lastname', 'firstname', 'status'])
   }
   center {
     tabs (renderingOptions:'LABEL') {
@@ -47,9 +47,12 @@ split_vertical('Category.view', cascadingModels:true) {
     table (validationModel:'Category', parent:'decoratedView', actionMap:'filterableBeanCollectionModuleActionMap')
   }
   bottom {
-    split_horizontal(right:'Category.tree') {
+    split_horizontal {
       left {
         table (model:'Category-subCategories', actionMap:'masterDetailActionMap')
+      }
+      right {
+        tree (parent:'Category.tree', preferredWidth:100)
       }
     }
   }
@@ -70,7 +73,7 @@ table ('PhoneNumber.table',
 evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
   cells {
     evenCell {
-      border (cascadingModels:true, borderType:'TITLED', icon:'usergroup.png') {
+      border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
         west {
           polarChart (model:'Statistics-categories',
             pieSeries:'categoryname', label:'categoryname')

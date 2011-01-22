@@ -9,6 +9,7 @@ Interface('Traceable',
    
 Entity('Customer', icon:'customer.png',  
     extend:['Traceable'], 
+    rendered:['customername', 'sinceDate'],
     ordering:['customername':'ASCENDING']) {
   string_64 'customername', mandatory:true, unicityScope:'name'
   date 'sinceDate'//, mandatory:true
@@ -21,7 +22,8 @@ Entity('Customer', icon:'customer.png',
 Entity ('Contact', icon:'user.png', 
     extend:['Traceable'], 
     extension:'ContactExtension',
-    rendered:['customer.customername', 'lastname', 'firstname'],
+    queryable:['lastname', 'firstname','customer', 'category', 'status'],
+    rendered:['customer.customername', 'lastname', 'firstname', 'category', 'status'],
     ordering:['lastname':'ASCENDING']) {
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
@@ -44,7 +46,7 @@ Entity ('PhoneNumber', icon:'phone.png',
       enumeration 'type', values:['mobile', 'home', 'work'], enumName:'number.type'                                                                     
     }
 
-Entity ('Category', icon:'usergroup.png') {   
+Entity ('Category', icon:'bookmark.png') {   
   string_64 'categoryname', mandatory:true  
   
   set 'subCategories', ref:'Category', composition:false          
