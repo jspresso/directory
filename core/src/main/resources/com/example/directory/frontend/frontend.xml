@@ -40,9 +40,7 @@
 	</bean>
 	 -->
 	
-	<!-- 
-	  <bean id="remoteViewFactory" abstract="true" parent="viewFactoryBase"
-    class="com.example.view.RemoteViewFactory" />
-  -->    
+	<bean id="remoteViewFactory" abstract="true" parent="viewFactoryBase"
+    class="org.jspresso.framework.view.remote.EnhancedRemoteViewFactory" />
 	
 </beans>
