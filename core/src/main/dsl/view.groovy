@@ -76,8 +76,7 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
       border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
         west {
           polarChart (model:'Statistics-categories',
-            pieSeries:'categoryname', label:'categoryname')
-          //table (model:'Statistics-categories', columns:['categoryname'])
+            pieSeries:'contactsCount', label:'categoryname')
         }
         center {
           table (model:'Category-contacts')
@@ -88,8 +87,7 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
       border (cascadingModels:true, borderType:'TITLED', icon:'activity.png') {
         west {
           polarChart (model:'Statistics-activities',
-            pieSeries:'activityname', label:'activityname')
-          //table (model:'Statistics-activities', columns:['activityname'])
+            pieSeries:'contactsCount', label:'activityname')
         }
         center {
           table (model:'Activity-contacts')

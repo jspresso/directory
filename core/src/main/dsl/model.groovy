@@ -46,13 +46,15 @@ Entity ('PhoneNumber', icon:'phone.png',
       enumeration 'type', values:['mobile', 'home', 'work'], enumName:'number.type'                                                                     
     }
 
-Entity ('Category', icon:'bookmark.png') {   
+Entity ('Category', icon:'bookmark.png', 
+  extension:'CategoryExtension') {   
   string_64 'categoryname', mandatory:true  
   
   set 'subCategories', ref:'Category', composition:false          
   reference 'parentCategory', ref:'Category', reverse:'Category-subCategories'
   
-  set 'contacts', ref:'Contact'
+  set 'contacts', ref:'Contact'  
+  integer 'contactsCount', computed:true
 }         
 
 Entity ('Address', icon:'address.png') {
@@ -62,11 +64,13 @@ Entity ('Address', icon:'address.png') {
   string_32 'country', mandatory:true 
 }                
 
-Entity ('Activity', icon:'activity.png') {
+Entity ('Activity', icon:'activity.png',
+  extension:'ActivityExtension') {
   string_64 'activityname', mandatory:true
   string_256 'activitydescription' 
   
   set 'contacts', ref:'Contact'
+  integer 'contactsCount', computed:true
 }
 
 
