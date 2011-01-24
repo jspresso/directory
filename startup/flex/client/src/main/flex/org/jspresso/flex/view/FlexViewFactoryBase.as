@@ -12,9 +12,9 @@ package org.jspresso.flex.view
   import org.jspresso.framework.gui.remote.RActionField;
   import org.jspresso.framework.gui.remote.RComponent;
   import org.jspresso.framework.util.remote.registry.IRemotePeerRegistry;
-  import org.jspresso.framework.view.flex.DefaultFlexViewFactory;
+  import org.jspresso.framework.view.flex.EnhancedFlexViewFactory;
 
-  public class FlexViewFactoryBase extends DefaultFlexViewFactory
+  public class FlexViewFactoryBase extends EnhancedFlexViewFactory
   {
 
     public function FlexViewFactoryBase(remotePeerRegistry:IRemotePeerRegistry, actionHandler:IActionHandler, commandHandler:IRemoteCommandHandler) {

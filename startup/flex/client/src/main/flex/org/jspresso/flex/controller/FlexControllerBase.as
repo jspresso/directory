@@ -18,12 +18,12 @@ package org.jspresso.flex.controller
   import mx.events.ItemClickEvent;
   import mx.rpc.remoting.mxml.RemoteObject;
   
-  import org.jspresso.framework.application.frontend.controller.flex.DefaultFlexController;
+  import org.jspresso.framework.application.frontend.controller.flex.EnhancedFlexController;
   import org.jspresso.framework.gui.remote.RAction;
   import org.jspresso.framework.gui.remote.RActionList;
   import org.jspresso.framework.view.flex.CollapsibleAccordion;
 
-  public class FlexControllerBase extends DefaultFlexController
+  public class FlexControllerBase extends EnhancedFlexController
   {
 
     public function FlexControllerBase(remoteController:RemoteObject, userLanguage:String) {

@@ -40,7 +40,9 @@
 	</bean>
 	 -->
 	
+	<!-- 
 	  <bean id="remoteViewFactory" abstract="true" parent="viewFactoryBase"
     class="com.example.view.RemoteViewFactory" />
+  -->    
 	
 </beans>
