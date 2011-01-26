@@ -11,15 +11,19 @@ public class ContactExtension extends AbstractComponentExtension<Contact> {
 
     registerNotificationForwarding(component, "firstname", "fullname");
     registerNotificationForwarding(component, "lastname", "fullname");
+    registerNotificationForwarding(component, "customer.customername", "fullname");
   }
   
-  public String getFullName() {
+  public String getFullname() {
     StringBuffer sb = new StringBuffer();
     if (getComponent().getFirstname()!=null) {
       sb.append(getComponent().getFirstname()).append(' ');
     }
     if (getComponent().getLastname()!=null) {
-      sb.append(getComponent().getLastname());
+      sb.append(getComponent().getLastname()).append(' ');
+    }
+    if (getComponent().getCustomer()!=null) {
+      sb.append("- ").append(getComponent().getCustomer().getCustomername()).append(' ');
     }
     return sb.toString().trim();
   }

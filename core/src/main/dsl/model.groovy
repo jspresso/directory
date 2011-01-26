@@ -25,6 +25,7 @@ Entity ('Contact', icon:'user.png',
     queryable:['lastname', 'firstname','customer', 'category', 'status'],
     rendered:['customer.customername', 'lastname', 'firstname', 'category', 'status'],
     ordering:['lastname':'ASCENDING']) {
+  
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
   text 'comments'
@@ -36,6 +37,8 @@ Entity ('Contact', icon:'user.png',
   
   enumeration 'status', values:['0', '1'], enumName:'contact.status'
   set 'activities', ref:'Activity', reverse:'Activity-contacts'    
+  
+  string 'fullname', computed:true
 }
 
 Entity ('PhoneNumber', icon:'phone.png',
