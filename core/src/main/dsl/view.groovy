@@ -9,10 +9,12 @@ border('Customer.view',
             north {
               table (model:'Customer-contacts', actionMap:'masterDetailActionMap')
             }
-            center { border (parent:'Contact.readonly.view') }
+            center { 
+              border (parent:'Contact.readonly.view') 
+            }
           }
 
-          table (model:'Customer-addresses', actionMap:'masterDetailActionMap', )
+          table (model:'Customer-addresses', actionMap:'masterDetailActionMap')
         }
       }
     }
@@ -74,22 +76,22 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
   cells {
     evenCell {
       border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
-        west {
+        center {
           polarChart (model:'Statistics-categories',
             pieSeries:'contactsCount', label:'categoryname')
         }
-        center {
+        east {
           listView (parent:'Contact.list', model:'Category-contacts')
         }
       }
     }
     evenCell {
       border (cascadingModels:true, borderType:'TITLED', icon:'activity.png') {
-        west {
+        center {
           polarChart (model:'Statistics-activities',
             pieSeries:'contactsCount', label:'activityname')
         }
-        center {
+        east {
           listView (parent:'Contact.list', model:'Activity-contacts')
         }
       }
