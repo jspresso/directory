@@ -24,7 +24,9 @@ Entity ('Contact', icon:'user.png',
     extension:'ContactExtension',
     queryable:['lastname', 'firstname','customer', 'category', 'status'],
     rendered:['customer.customername', 'lastname', 'firstname', 'category', 'status'],
-    ordering:['lastname':'ASCENDING']) {
+    ordering:['lastname':'ASCENDING'],
+    toString:'fullname', 
+    autoComplete:'lastname') {
   
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'

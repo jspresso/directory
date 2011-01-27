@@ -42,21 +42,21 @@ public class TestDataPersister extends AbstractTestDataPersister {
       "Lafont/Bruno",
       "Rodes Vila/Fernando",
       "Tricoire/Jean-Pascal",
-      "De La Tour d'Artaise/Thiery",
-      "Clamadieu/Jean-Pierre",
-      "Arnault/Bernard", 
-      "Batista/Eike", 
-      "Ortega/Amancio ", 
-      "Albrecht/Karl", 
-      "Kamprad/Ingvar", 
-      "Viehbacher/Christopher", 
-      "Truan/Antonio", 
-      "Levy/Maurice",
-      "Agon/Jean-Paul",
-      "De Castries/Henri",
-      "Riboud/Franck",
-      "Olofsson/Lars",
-      "Pinaulf/FranÃ§ois-Henri",        
+//      "De La Tour d'Artaise/Thiery",
+//      "Clamadieu/Jean-Pierre",
+//      "Arnault/Bernard", 
+//      "Batista/Eike", 
+//      "Ortega/Amancio ", 
+//      "Albrecht/Karl", 
+//      "Kamprad/Ingvar", 
+//      "Viehbacher/Christopher", 
+//      "Truan/Antonio", 
+//      "Levy/Maurice",
+//      "Agon/Jean-Paul",
+//      "De Castries/Henri",
+//      "Riboud/Franck",
+//      "Olofsson/Lars",
+      "Pinaulf/François-Henri",        
       "De Margerie/Christophe",        
       "Bouygues/Martin",        
       "Prot/Baudouin",   
@@ -192,13 +192,13 @@ public class TestDataPersister extends AbstractTestDataPersister {
   private HashMap<String, Activity> createActivities() {
     HashMap<String, Activity> map = new HashMap<String, Activity>();
     createActivity("Transport", map);
-    createActivity("Game", map);
-    createActivity("Bank", map); 
+    //createActivity("Game", map);
+    //createActivity("Bank", map); 
     createActivity("Finance", map); 
     createActivity("Oil & Gas", map); 
     createActivity("Electricity", map); 
     createActivity("Automotive", map); 
-    createActivity("Retail", map);     
+    //createActivity("Retail", map);     
     createActivity("others", map); 
     saveOrUpdateAll(map.values());
     return map;
