@@ -42,20 +42,20 @@ public class TestDataPersister extends AbstractTestDataPersister {
       "Lafont/Bruno",
       "Rodes Vila/Fernando",
       "Tricoire/Jean-Pascal",
-//      "De La Tour d'Artaise/Thiery",
-//      "Clamadieu/Jean-Pierre",
-//      "Arnault/Bernard", 
-//      "Batista/Eike", 
-//      "Ortega/Amancio ", 
-//      "Albrecht/Karl", 
-//      "Kamprad/Ingvar", 
-//      "Viehbacher/Christopher", 
-//      "Truan/Antonio", 
-//      "Levy/Maurice",
-//      "Agon/Jean-Paul",
-//      "De Castries/Henri",
-//      "Riboud/Franck",
-//      "Olofsson/Lars",
+      "De La Tour d'Artaise/Thiery",
+      "Clamadieu/Jean-Pierre",
+      "Arnault/Bernard", 
+      "Batista/Eike", 
+      "Ortega/Amancio ", 
+      "Albrecht/Karl", 
+      "Kamprad/Ingvar", 
+      "Viehbacher/Christopher", 
+      "Truan/Antonio", 
+      "Levy/Maurice",
+      "Agon/Jean-Paul",
+      "De Castries/Henri",
+      "Riboud/Franck",
+      "Olofsson/Lars",
       "Pinaulf/François-Henri",        
       "De Margerie/Christophe",        
       "Bouygues/Martin",        
@@ -87,7 +87,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
     categories = createCategories();
     activities = createActivities();
     
-    createContacts();
+    //createContacts();
     customers = createCustomers();
     
   }
@@ -126,6 +126,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
     return entity;
   }
   
+  @SuppressWarnings("unused")
   private void createContacts() {
     for (String id : contacts) {
       Contact entity = createContact(id.substring(0, id.indexOf('/')), id.substring(1+id.indexOf('/')));
@@ -193,13 +194,13 @@ public class TestDataPersister extends AbstractTestDataPersister {
     HashMap<String, Activity> map = new HashMap<String, Activity>();
     createActivity("Transport", map);
     //createActivity("Game", map);
-    //createActivity("Bank", map); 
+    createActivity("Bank", map); 
     createActivity("Finance", map); 
     createActivity("Oil & Gas", map); 
     createActivity("Electricity", map); 
     createActivity("Automotive", map); 
     //createActivity("Retail", map);     
-    createActivity("others", map); 
+    //createActivity("others", map); 
     saveOrUpdateAll(map.values());
     return map;
   }
