@@ -77,11 +77,11 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
     evenCell {
       border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
         center {
-          polarChart (model:'Statistics-categories',
+          polarChart (model:'Statistics-categories', 
             pieSeries:'contactsCount', label:'categoryname')
         }
         east {
-          listView (parent:'Contact.list', model:'Category-contacts', background:'0x99FFFFFF')
+          listView (parent:'Contact.list', model:'Category-contacts', background:'0x00FFFFFF')
         }
       }
     }
@@ -92,7 +92,7 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
             pieSeries:'contactsCount', label:'activityname')
         }
         east {
-          listView (parent:'Contact.list', model:'Activity-contacts', background:'0x22FFFFFF')
+          listView (parent:'Contact.list', model:'Activity-contacts', background:'0x00FFFFFF')
         }
       }
     }
