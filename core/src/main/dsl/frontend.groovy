@@ -4,7 +4,7 @@ external (id:['abstractViewFactory'])
 controller ('directory.controller',
     icon:'directory.png',
     context:'directory',
-    language:'fr',
+    language:'en',
     actionMap:'mainActionMap',
     workspaces:['directory.workspace', 'statistics.workspace', 'referential.workspace'])
 
@@ -27,8 +27,8 @@ workspace('directory.workspace',
 workspace ('statistics.workspace',
     icon:'statistics.png')  {
 
-      beanModule ('statistics.module', 
-        icon:'statistics.png',
+      beanModule ('statistics.contacts.module', 
+        icon:'user.png',
         component:'Statistics',
         moduleView:'Statistics.view',
         entry:'startupStatistics')

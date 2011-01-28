@@ -83,11 +83,7 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
             barSeries (valueField:'contactsCountActive', background:'0xE094c905')
             barSeries (valueField:'contactsCountInactive', background:'0xE0fb5501')            
           }        
-//          polarChart (model:'Statistics-activities', label:'activityname') {
-//            pieSeries (valueField:'contactsCount',
-//              background:['0x9030782f', '0x9094c905', '0x90ffeb01', '0x90fcbb07', '0x90fc5602', '0x90f71d02', '0x90eb0104',
-//                          '0x90ce047e', '0x9066008a', '0x90140390', '0x900e2cb2', '0x90345e86', '0x90316c2a'])
-//          }
+
         }
         east {
           listView (parent:'Contact.list', model:'Activity-contacts')
