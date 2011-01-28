@@ -81,7 +81,7 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
             pieSeries:'contactsCount', label:'categoryname')
         }
         east {
-          listView (parent:'Contact.list', model:'Category-contacts')
+          listView (parent:'Contact.list', model:'Category-contacts', background:'0x99FFFFFF')
         }
       }
     }
@@ -92,7 +92,7 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
             pieSeries:'contactsCount', label:'activityname')
         }
         east {
-          listView (parent:'Contact.list', model:'Activity-contacts')
+          listView (parent:'Contact.list', model:'Activity-contacts', background:'0x22FFFFFF')
         }
       }
     }
