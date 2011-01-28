@@ -75,7 +75,10 @@ Entity ('Activity', icon:'activity.png',
   string_256 'activitydescription' 
   
   set 'contacts', ref:'Contact'
+  
   integer 'contactsCount', computed:true
+  integer 'contactsCountActive', computed:true
+  integer 'contactsCountInactive', computed:true
 }
 
 

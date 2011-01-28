@@ -74,29 +74,43 @@ table ('PhoneNumber.table',
 
 evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
   cells {
-    evenCell {
-      border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
-        center {
-          polarChart (model:'Statistics-categories', 
-            pieSeries:'contactsCount', label:'categoryname')
-        }
-        east {
-          listView (parent:'Contact.list', model:'Category-contacts', background:'0x00FFFFFF')
-        }
-      }
-    }
+    
     evenCell {
       border (cascadingModels:true, borderType:'TITLED', icon:'activity.png') {
         center {
-          polarChart (model:'Statistics-activities',
-            pieSeries:'contactsCount', label:'activityname')
+          
+          cartesianChart(model:'Statistics-activities', label:'activityname') {
+            barSeries (valueField:'contactsCountActive', background:'0xE094c905')
+            barSeries (valueField:'contactsCountInactive', background:'0xE0fb5501')            
+          }        
+//          polarChart (model:'Statistics-activities', label:'activityname') {
+//            pieSeries (valueField:'contactsCount',
+//              background:['0x9030782f', '0x9094c905', '0x90ffeb01', '0x90fcbb07', '0x90fc5602', '0x90f71d02', '0x90eb0104',
+//                          '0x90ce047e', '0x9066008a', '0x90140390', '0x900e2cb2', '0x90345e86', '0x90316c2a'])
+//          }
         }
         east {
-          listView (parent:'Contact.list', model:'Activity-contacts', background:'0x00FFFFFF')
+          listView (parent:'Contact.list', model:'Activity-contacts')
         }
       }
     }
+    
+    evenCell {
+      border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
+        center { 
+                   
+          polarChart (model:'Statistics-categories', label:'categoryname') {
+            pieSeries (valueField:'contactsCount',
+              background:['0x9ac808', '0x90e454ac', '0x903172cf', '0xfdeb01'])
+          }
+        }
+        east {
+          listView (parent:'Contact.list', model:'Category-contacts')
+        }
+      }
+    }
+
   }
 }
 
-listView('Contact.list', rendered:'fullname', preferredWidth:250)
+listView('Contact.list', rendered:'fullname', preferredWidth:250, background:'0x00FFFFFF')

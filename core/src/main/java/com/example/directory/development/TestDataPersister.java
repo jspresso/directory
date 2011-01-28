@@ -56,7 +56,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
       "De Castries/Henri",
       "Riboud/Franck",
       "Olofsson/Lars",
-      "Pinaulf/François-Henri",        
+      "Pinaulf/Francois-Henri",        
       "De Margerie/Christophe",        
       "Bouygues/Martin",        
       "Prot/Baudouin",   
