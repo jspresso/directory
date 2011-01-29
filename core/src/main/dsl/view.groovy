@@ -80,33 +80,39 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
         center {
           
           cartesianChart(model:'Statistics-activities', label:'activityname') {
-            barSeries (valueField:'contactsCountActive', background:'0xE094c905')
-            barSeries (valueField:'contactsCountInactive', background:'0xE0fb5501')            
+            barSeries (valueField:'contactsCountActive', background:'0x50FF7F50')
+            barSeries (valueField:'contactsCountInactive', background:'0x50FF6347')            
           }        
 
         }
         east {
-          listView (parent:'Contact.list', model:'Activity-contacts')
+          listView(model:'Activity-contacts', rendered:'fullname', preferredWidth:250, background:'0x00FFFFFF')
         }
       }
     }
     
     evenCell {
       border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
-        center { 
-                   
-          polarChart (model:'Statistics-categories', label:'categoryname') {
-            pieSeries (valueField:'contactsCount',
-              background:['0x9ac808', '0x90e454ac', '0x903172cf', '0xfdeb01'])
+          west {
+            polarChart (model:'Statistics-categories', label:'category.categoryname', preferredWidth:300) {
+              pieSeries (valueField:'category.allContactsCount', background:['0x50FF7F50', '0x50FF6347', '0x50FF8C00'])
+            }
           }
-        }
-        east {
-          listView (parent:'Contact.list', model:'Category-contacts')
-        }
+          center {
+            
+            cartesianChart(model:'CategoryStat-activities', label:'activity.activityname') {
+              barSeries (valueField:'contactsCount', background:'0x50FF7F50')
+            } 
+              
+          }
+          east {
+            listView(model:'ActivityStat-contacts', rendered:'fullname', preferredWidth:250, background:'0x00FFFFFF')
+          }
+        
       }
     }
 
   }
 }
 
-listView('Contact.list', rendered:'fullname', preferredWidth:250, background:'0x00FFFFFF')
+

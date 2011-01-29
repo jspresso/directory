@@ -59,7 +59,9 @@ Entity ('Category', icon:'bookmark.png',
   reference 'parentCategory', ref:'Category', reverse:'Category-subCategories'
   
   set 'contacts', ref:'Contact'  
-  integer 'contactsCount', computed:true
+  
+  set 'allContacts', ref:'Contact', computed:true
+  integer 'allContactsCount', computed:true
 }         
 
 Entity ('Address', icon:'address.png') {
@@ -85,8 +87,20 @@ Entity ('Activity', icon:'activity.png',
 namespace('bean') {
 
   Component ('Statistics', icon:'statistics.png') {
-    set 'categories', ref:'Category', readOnly:true
     set 'activities', ref:'Activity', readOnly:true
+    set 'categories', ref:'CategoryStat', readOnly:true
+  }
+  
+  Component ('CategoryStat') {
+    reference 'category', ref:'Category', readOnly:true
+    set 'activities', ref:'ActivityStat', readOnly:true
+  }
+  
+  Component ('ActivityStat') {
+    reference 'activity', ref:'Activity', readOnly:true
+    set 'contacts', ref:'Contact', readOnly:true
+  
+    integer 'contactsCount', readOnly:true
   }
   
 }

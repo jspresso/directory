@@ -168,7 +168,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
   private HashMap<String, Category> createCategories() {
     HashMap<String, Category> map = new HashMap<String, Category>();
     createCategory("office", map);
-    createCategory("home", map);
+    //createCategory("home", map);
     createCategory("family", map);
     
     createCategory("sport", map);
