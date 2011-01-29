@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.jspresso.framework</groupId>
-    <artifactId>jspresso-dependencies</artifactId>
+    <artifactId>jspresso-ext-root</artifactId>
     <version>3.5-SNAPSHOT</version>
   </parent>
   <groupId>com.example.directory</groupId>
@@ -35,6 +35,21 @@
       <id>jspresso-snapshots-repository</id>
       <url>http://repository.jspresso.org/maven2-snapshots</url>
       <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>jspresso-private-repository</id>
+      <url>http://repository.jspresso.org/maven2-private</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>jspresso-private-snapshots-repository</id>
+      <url>http://repository.jspresso.org/maven2-snapshots-private</url>
+      <snapshots>
+        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>
@@ -50,6 +65,7 @@
         <artifactId>directory-startup-swing</artifactId>
         <version>${project.version}</version>
       </dependency>
+      
       <dependency>
         <groupId>com.example.directory</groupId>
         <artifactId>directory-startup-ulc</artifactId>
@@ -60,6 +76,7 @@
         <artifactId>directory-startup-wings</artifactId>
         <version>${project.version}</version>
       </dependency>
+      
       <dependency>
         <groupId>com.example.directory</groupId>
         <artifactId>directory-startup-remote</artifactId>
@@ -78,6 +95,34 @@
         <version>${project.version}</version>
         <type>swf</type>
       </dependency>
+      
+      <dependency>
+        <groupId>com.adobe.flex.framework</groupId>
+        <artifactId>datavisualization</artifactId>
+        <type>swc</type>
+        <version>3.5.0.12683</version>
+      </dependency>
+      <dependency>
+        <groupId>com.adobe.flex.framework</groupId>
+        <artifactId>datavisualization</artifactId>
+        <type>rb.swc</type>
+        <version>3.5.0.12683</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>com.ibm.ilog</groupId>
+        <artifactId>ilog-elixir</artifactId>
+        <type>swc</type>
+        <version>2.5</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ibm.ilog</groupId>
+        <artifactId>ilog-elixir</artifactId>
+        <type>rb.swc</type>
+        <version>2.5</version>
+      </dependency>
+      
+      <!--
       <dependency>
         <groupId>com.example.directory</groupId>
         <artifactId>directory-startup-qooxdoo-server</artifactId>
@@ -90,14 +135,9 @@
         <classifier>web-resources</classifier>
         <type>zip</type>
       </dependency>
+      -->
       
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.6</version>
-      </dependency> 
-      
-    </dependencies>
+    </dependencies>   
   </dependencyManagement>
   <build>
     <plugins>

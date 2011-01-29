@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.example.directory</groupId>
-    <artifactId>directory-startup-qooxdoo</artifactId>
+    <artifactId>directory</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>directory-startup-qooxdoo-client</artifactId>
@@ -33,7 +32,7 @@
         <executions>
           <execution>
             <id>unpack-jspresso-qooxdoo</id>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -44,7 +43,7 @@
           </execution>
           <execution>
             <id>unpack-qooxdoo-sdk</id>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -55,7 +54,7 @@
           </execution>
           <execution>
             <id>unpack-qooxdoo-contribs</id>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -78,7 +77,7 @@
             <goals>
               <goal>exec</goal>
             </goals>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
           </execution>
         </executions>
         <configuration>
@@ -99,7 +98,7 @@
             <goals>
               <goal>run</goal>
             </goals>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
             <configuration>
               <tasks>
                 <property name="web-debug.dir" value="${project.build.directory}/web-debug" />
@@ -115,16 +114,16 @@
                   </fileset>
                 </copy>
                 <replace dir="${web-debug.dir}" token="../../../../target" value="file:///${project.build.directory}">
-                  <include name="**/*.js" />
+                  <include name="**/*.js"/>
                 </replace>
                 <replace dir="${web-debug.dir}" token="../../" value="file:///${basedir}/src/main/">
-                  <include name="**/*.js" />
+                  <include name="**/*.js"/>
                 </replace>
                 <replace dir="${web-debug.dir}" token="\" value="/">
-                  <include name="**/*.js" />
+                  <include name="**/*.js"/>
                 </replace>
                 <replace dir="${web-debug.dir}" token="//(" value="\/(">
-                  <include name="**/*.js" />
+                  <include name="**/*.js"/>
                 </replace>
                 <delete dir="${js.source.dir}" />
               </tasks>
@@ -141,7 +140,7 @@
             <goals>
               <goal>single</goal>
             </goals>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
             <configuration>
               <descriptors>
                 <descriptor>${basedir}/src/main/assembly/web-resources.xml</descriptor>
@@ -153,7 +152,7 @@
             <goals>
               <goal>single</goal>
             </goals>
-            <phase>compile</phase>
+            <phase>prepare-package</phase>
             <configuration>
               <descriptors>
                 <descriptor>${basedir}/src/main/assembly/sources.xml</descriptor>

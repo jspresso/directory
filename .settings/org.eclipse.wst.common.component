@@ -19,14 +19,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/qooxdoo/server/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/webapp/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/webapp/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/flex/config/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/flex/client/src/main/flex"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/flex/client/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/flex/client/target/generated-resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/flex/client/src/test/flex"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/flex/client/src/test/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/startup/qooxdoo/client/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/core/src/main/dsl"/>
         <property name="context-root" value="directory-webapp"/>
         <property name="java-output-path"/>
     </wb-module>

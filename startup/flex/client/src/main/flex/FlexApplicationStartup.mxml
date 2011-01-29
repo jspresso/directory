@@ -4,15 +4,17 @@
   initialize="init()"
   creationComplete="start()">
   
+  <mx:Style source="/css/jspresso.css" />
+  
 	<mx:Script>
 		<![CDATA[
 		  import mx.resources.Locale;
-		  import org.jspresso.framework.application.frontend.controller.flex.DefaultFlexController;
+		  import org.jspresso.flex.controller.FlexController;
 		  
-		  private var flexController:DefaultFlexController;
+		  private var flexController:FlexController;
 		  
 			private function init():void {
-        flexController = new DefaultFlexController(remoteController,
+        flexController = new FlexController(remoteController,
                                                    new Locale(resourceManager.localeChain[0]).language);
 			}
 			

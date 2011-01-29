@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.example.directory</groupId>
-    <artifactId>directory-startup-flex</artifactId>
+    <artifactId>directory</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>directory-startup-flex-client</artifactId>
@@ -18,7 +20,7 @@
     </dependency>
     <dependency>
       <groupId>org.jspresso.framework</groupId>
-      <artifactId>jspresso-flex</artifactId>
+      <artifactId>jspresso-ext-flex</artifactId>
       <type>swc</type>
     </dependency>
     <dependency>
@@ -44,9 +46,35 @@
     </resources>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-flex-config</id>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <phase>prepare-package</phase>
+            <configuration>
+              <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+              <includeArtifactIds>directory-startup-flex-config</includeArtifactIds>
+              <excludeTransitive>true</excludeTransitive>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.sonatype.flexmojos</groupId>
         <artifactId>flexmojos-maven-plugin</artifactId>
         <executions>
+          <execution>
+            <id>default-compile-swf</id>
+            <phase>package</phase>
+            <goals>
+              <goal>compile-swf</goal>
+            </goals>
+          </execution>
+          <!-- 
           <execution>
             <id>generate-asdoc</id>
             <phase>package</phase>
@@ -54,6 +82,7 @@
               <goal>asdoc</goal>
             </goals>
           </execution>
+           -->
         </executions>
         <configuration>
           <locales>
@@ -66,24 +95,6 @@
             <swf>${project.artifactId}</swf>
           </parameters>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>unpack-flex-config</id>
-            <goals>
-              <goal>unpack-dependencies</goal>
-            </goals>
-            <phase>generate-resources</phase>
-            <configuration>
-              <outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-              <includeArtifactIds>directory-startup-flex-config</includeArtifactIds>
-              <excludeTransitive>true</excludeTransitive>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

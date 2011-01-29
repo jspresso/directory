@@ -16,4 +16,14 @@ public class UlcApplicationStartup extends UlcStartup {
   protected String getApplicationContextKey() {
     return "directory-ulc-context";
   }
+
+  /**
+   * Overrides default bean ref locator.
+   * <p>
+   * {@inheritDoc}
+   */
+  @Override
+  protected String getBeanFactorySelector() {
+    return "com/example/directory/beanRefFactory.xml";
+  }
 }

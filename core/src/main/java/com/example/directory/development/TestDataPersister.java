@@ -56,7 +56,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
       "De Castries/Henri",
       "Riboud/Franck",
       "Olofsson/Lars",
-      "Pinaulf/François-Henri",        
+      "Pinaulf/Francois-Henri",        
       "De Margerie/Christophe",        
       "Bouygues/Martin",        
       "Prot/Baudouin",   
@@ -87,8 +87,8 @@ public class TestDataPersister extends AbstractTestDataPersister {
     categories = createCategories();
     activities = createActivities();
     
-    //contacts = createContacts();
-    //customers = createCustomers();
+    //createContacts();
+    customers = createCustomers();
     
   }
   
@@ -126,6 +126,7 @@ public class TestDataPersister extends AbstractTestDataPersister {
     return entity;
   }
   
+  @SuppressWarnings("unused")
   private void createContacts() {
     for (String id : contacts) {
       Contact entity = createContact(id.substring(0, id.indexOf('/')), id.substring(1+id.indexOf('/')));
@@ -166,17 +167,17 @@ public class TestDataPersister extends AbstractTestDataPersister {
   
   private HashMap<String, Category> createCategories() {
     HashMap<String, Category> map = new HashMap<String, Category>();
-    createCategory("office", map);
-    createCategory("home", map);
-    createCategory("family", map);
-    
-    createCategory("sport", map);
-    createCategory("squash", map);
-    createCategory("soccer", map);
-    createCategory("golf", map);    
-    map.get("sport").addToSubCategories(map.get("squash"));
-    map.get("sport").addToSubCategories(map.get("soccer"));
-    map.get("sport").addToSubCategories(map.get("golf"));
+    createCategory("Institutional", map);
+    createCategory("Private", map);    
+    createCategory("Public", map);
+
+    createCategory("Small business", map);
+    createCategory("Middle market", map);
+    createCategory("Big market", map);
+        
+    map.get("Private").addToSubCategories(map.get("Small business"));
+    map.get("Private").addToSubCategories(map.get("Middle market"));
+    map.get("Private").addToSubCategories(map.get("Big market"));
     
     saveOrUpdateAll(map.values());
     return map;
@@ -192,14 +193,14 @@ public class TestDataPersister extends AbstractTestDataPersister {
   private HashMap<String, Activity> createActivities() {
     HashMap<String, Activity> map = new HashMap<String, Activity>();
     createActivity("Transport", map);
-    createActivity("Game", map);
+    //createActivity("Game", map);
     createActivity("Bank", map); 
     createActivity("Finance", map); 
     createActivity("Oil & Gas", map); 
     createActivity("Electricity", map); 
     createActivity("Automotive", map); 
-    createActivity("Retail", map);     
-    createActivity("others", map); 
+    //createActivity("Retail", map);     
+    //createActivity("others", map); 
     saveOrUpdateAll(map.values());
     return map;
   }

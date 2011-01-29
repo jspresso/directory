@@ -10,10 +10,12 @@
   <packaging>war</packaging>
   <name>Example Application - Webapp</name>
   <dependencies>
+    <!-- 
     <dependency>
       <groupId>com.example.directory</groupId>
       <artifactId>directory-startup-wings</artifactId>
     </dependency>
+     -->
     <dependency>
       <groupId>com.example.directory</groupId>
       <artifactId>directory-startup-remote</artifactId>
@@ -31,6 +33,7 @@
       <type>swf</type>
       <scope>provided</scope>
     </dependency>
+    <!--
     <dependency>
       <groupId>com.example.directory</groupId>
       <artifactId>directory-startup-qooxdoo-server</artifactId>
@@ -46,6 +49,7 @@
       <groupId>org.jspresso.framework</groupId>
       <artifactId>jspresso-qooxdoo-server</artifactId>
     </dependency>
+    -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-ehcache</artifactId>
@@ -95,11 +99,6 @@
       <artifactId>substance</artifactId>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-       <groupId>mysql</groupId>
-       <artifactId>mysql-connector-java</artifactId>
-    </dependency> 
-    
   </dependencies>
   <build>
     <plugins>
@@ -119,6 +118,7 @@
               <excludeTransitive>true</excludeTransitive>
             </configuration>
           </execution>
+          <!--
           <execution>
             <id>unpack-qooxdoo-dependencies</id>
             <goals>
@@ -132,6 +132,7 @@
               <excludeTransitive>true</excludeTransitive>
             </configuration>
           </execution>
+          -->
         </executions>
       </plugin>
       <plugin>
@@ -140,7 +141,7 @@
         <configuration>
           <warName>${project.artifactId}</warName>
           <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
-          <webXml>${basedir}/src/main/webapp/WEB-INF/noulc-web.xml</webXml>
+          <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
           <warSourceExcludes>**/webstart/**,**/*-web.xml</warSourceExcludes>
         </configuration>
       </plugin>
@@ -153,6 +154,7 @@
               <goal>wrapper</goal>
               <goal>copy-flex-resources</goal>
             </goals>
+            <phase>prepare-package</phase>
             <configuration>
               <wrapperArtifact>
                 <groupId>${project.groupId}</groupId>
@@ -180,9 +182,12 @@
             <phase>package</phase>
             <configuration>
               <tasks>
-                <copy todir="target/eclipse-war-lib">
-                  <fileset dir="target/directory-webapp/WEB-INF/lib">
-                    <exclude name="**/directory-*.*" />
+                <copy
+                  todir="target/eclipse-war-lib">
+                  <fileset
+                    dir="target/directory-webapp/WEB-INF/lib">
+                    <exclude
+                      name="**/directory-*.*" />
                   </fileset>
                 </copy>
               </tasks>
@@ -209,6 +214,7 @@
     </plugins>
   </build>
   <profiles>
+    <!--
     <profile>
       <id>ulc</id>
       <dependencies>
@@ -272,15 +278,7 @@
                   <tasks>
                     <signjar alias="key-alias" keystore="conf/keystore.jks" storepass="keystore-password" keypass="key-password">
                       <fileset dir="${project.build.directory}/${project.artifactId}">
-                        <include name="lib/jspresso-app-launch-core.jar" />
-                        <include name="lib/jspresso-app-launch-ulc.jar" />
-                        <include name="lib/jspresso-swing-components.jar" />
-                        <include name="lib/ulc-base-trusted.jar" />
-                        <include name="lib/ulc-base-client.jar" />
-                        <include name="lib/ulc-jnlp-client.jar" />
-                        <include name="lib/nachocalendar.jar" />
-                        <include name="lib/jedit-syntax.jar" />
-                        <include name="lib/substance.jar" />
+                        <include name="lib/*.jar" />
                       </fileset>
                     </signjar>
                   </tasks>
@@ -294,5 +292,6 @@
         </plugins>
       </build>
     </profile>
+    -->
   </profiles>
 </project>

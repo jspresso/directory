@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.example.directory</groupId>
-    <artifactId>directory-startup</artifactId>
+    <artifactId>directory</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>directory-startup-remote</artifactId>
@@ -13,6 +13,14 @@
     <dependency>
       <groupId>com.example.directory</groupId>
       <artifactId>directory-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-app-template-remote</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-ext-remote-application</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jspresso.framework</groupId>

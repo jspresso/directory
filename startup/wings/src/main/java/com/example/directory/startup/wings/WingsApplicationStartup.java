@@ -16,4 +16,14 @@ public class WingsApplicationStartup extends WingsStartup {
   protected String getApplicationContextKey() {
     return "directory-wings-context";
   }
+
+  /**
+   * Overrides default bean ref locator.
+   * <p>
+   * {@inheritDoc}
+   */
+  @Override
+  protected String getBeanFactorySelector() {
+    return "com/example/directory/beanRefFactory.xml";
+  }
 }

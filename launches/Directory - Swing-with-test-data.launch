@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/directory-core"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.maven.ide.eclipse.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.jspresso.framework.application.launch.swing.SwingLauncher"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-applicationClass  com.example.directory.startup.swing.development.SwingDevApplicationStartup&#13;&#10;-splash classpath:com/example/directory/images/directory.png"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="directory-core"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.maven.ide.eclipse.launchconfig.sourcepathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.auth.login.config=conf/jaas.config &#13;&#10;-Dswing.defaultlaf=org.jvnet.substance.SubstanceLookAndFeel &#13;&#10;-Dsubstancelaf.watermark.tobleed&#13;&#10;&#13;&#10;-Dorg.osjava.sj.delimiter=/ &#13;&#10;-Dorg.osjava.sj.jndi.shared=true &#13;&#10;-Dorg.osjava.sj.root=conf &#13;&#10;-Djava.security.auth.login.config=D:/envdev/tomcat-6.0.26/conf/jaas.config"/>
+</launchConfiguration>

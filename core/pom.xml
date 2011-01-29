@@ -12,37 +12,36 @@
   <dependencies>
     <dependency>
       <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-app-template-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-app-launch-core</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-remote-application</artifactId>
+      <optional>true</optional>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
       <artifactId>jspresso-tools</artifactId>
       <optional>true</optional>
     </dependency>
+    
     <dependency>
       <groupId>org.jspresso.framework</groupId>
-      <artifactId>jspresso-app-template-swing</artifactId>
-      <optional>true</optional>
+      <artifactId>jspresso-ext-view</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jspresso.framework</groupId>
-      <artifactId>jspresso-app-template-wings</artifactId>
+      <artifactId>jspresso-ext-remote-application</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.jspresso.framework</groupId>
-      <artifactId>jspresso-app-template-remote</artifactId>
-    </dependency>
-    <dependency>
-       <groupId>mysql</groupId>
-       <artifactId>mysql-connector-java</artifactId>
-     </dependency> 
+        
   </dependencies>
   <profiles>
-    <profile>
-      <id>ulc</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.jspresso.framework</groupId>
-          <artifactId>jspresso-app-template-ulc</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
     <profile>
       <id>generate-ddl-scripts</id>
       <activation>
@@ -56,7 +55,7 @@
             <executions>
               <execution>
                 <id>generate-mysql-schema</id>
-                <phase>process-classes</phase>
+                <phase>prepare-package</phase>
                 <goals>
                   <goal>hbm2ddl</goal>
                 </goals>
@@ -79,7 +78,7 @@
               </execution>
               <execution>
                 <id>generate-postgresql-schema</id>
-                <phase>process-classes</phase>
+                <phase>prepare-package</phase>
                 <goals>
                   <goal>hbm2ddl</goal>
                 </goals>
@@ -227,11 +226,16 @@
                     <include name="**/src/main/resources" />
                     <include name="**/target/generated-resources/dsl" />
                   </dirset>
-                  <path refid="maven.plugin.classpath" />
+                  <path refid="maven.compile.classpath"/>
+                  <path refid="maven.plugin.classpath"/>
                 </path>
-                <property name="generator.dest" value="${project.build.directory}/generated-sources/entitygenerator" />
-                <mkdir dir="${generator.dest}" />
-                <java classname="org.jspresso.framework.tools.entitygenerator.EntityGenerator" classpathref="spring.beans.classpath" failonerror="true">
+                <property name="generator.dest" value="${project.build.directory}/generated-sources/entitygenerator"/>
+                <mkdir dir="${generator.dest}"/>
+                <java classname="org.jspresso.framework.tools.entitygenerator.EntityGenerator"
+                      classpathref="spring.beans.classpath"
+                      failonerror="true">
+                  <arg value="-beanFactorySelector" />
+                  <arg value="com/example/directory/beanRefFactory.xml" />
                   <arg value="-applicationContextKey" />
                   <arg value="directory-model-context" />
                   <arg value="-templateResourcePath" />
@@ -242,6 +246,8 @@
                   <arg value="${generator.dest}" />
                   <arg value="-includePackages" />
                   <arg value="com.example.directory.model" />
+                  <arg value="-excludePatterns" />
+                  <arg value="com.example.directory.model.bean.*" />                  
                 </java>
               </tasks>
             </configuration>
@@ -254,8 +260,8 @@
             </goals>
             <configuration>
               <tasks>
-                <property name="xdoclet.dest" value="${project.build.directory}/generated-resources/xdoclet" />
-                <mkdir dir="${xdoclet.dest}" />
+                <property name="xdoclet.dest" value="${project.build.directory}/generated-resources/xdoclet"/>
+                <mkdir dir="${xdoclet.dest}"/>
                 <replaceregexp byline="true">
                   <regexp pattern="&lt;component name=&quot;(.*)&quot;&gt;$" />
                   <substitution expression="&lt;component name=&quot;\1&quot;&gt;&lt;tuplizer entity-mode=&quot;pojo&quot; class=&quot;org.jspresso.framework.model.persistence.hibernate.entity.tuplizer.ProxyPojoComponentTuplizer&quot; /&gt;" />
@@ -271,8 +277,8 @@
                   </fileset>
                 </replaceregexp>
                 <replaceregexp byline="false" flags="mg">
-                  <regexp pattern="table=&quot;(.*)&quot;&gt;(\r?\n)(.*)&lt;key column=&quot;ID&quot;/&gt;" />
-                  <substitution expression="table=&quot;\1&quot;&gt;\2\3&lt;key column=&quot;ID&quot; foreign-key=&quot;\1_SUPER_FK&quot;/&gt;" />
+                  <regexp pattern="table=&quot;(.*)&quot;&gt;(\r?\n)(.*)&lt;key column=&quot;ID&quot;/&gt;"/>
+                  <substitution expression="table=&quot;\1&quot;&gt;\2\3&lt;key column=&quot;ID&quot; foreign-key=&quot;\1_SUPER_FK&quot;/&gt;"/>
                   <fileset dir="${xdoclet.dest}">
                     <include name="**/*.hbm.xml" />
                   </fileset>
