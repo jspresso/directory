@@ -167,17 +167,17 @@ public class TestDataPersister extends AbstractTestDataPersister {
   
   private HashMap<String, Category> createCategories() {
     HashMap<String, Category> map = new HashMap<String, Category>();
-    createCategory("office", map);
-    //createCategory("home", map);
-    createCategory("family", map);
-    
-    createCategory("sport", map);
-    createCategory("squash", map);
-    createCategory("soccer", map);
-    createCategory("golf", map);    
-    map.get("sport").addToSubCategories(map.get("squash"));
-    map.get("sport").addToSubCategories(map.get("soccer"));
-    map.get("sport").addToSubCategories(map.get("golf"));
+    createCategory("Institutional", map);
+    createCategory("Private", map);    
+    createCategory("Public", map);
+
+    createCategory("Small business", map);
+    createCategory("Middle market", map);
+    createCategory("Big market", map);
+        
+    map.get("Private").addToSubCategories(map.get("Small business"));
+    map.get("Private").addToSubCategories(map.get("Middle market"));
+    map.get("Private").addToSubCategories(map.get("Big market"));
     
     saveOrUpdateAll(map.values());
     return map;

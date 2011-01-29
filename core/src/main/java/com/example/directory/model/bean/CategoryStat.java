@@ -22,7 +22,7 @@ public class CategoryStat extends AbstractPropertyChangeCapable {
     this.category = category;
     
     HashMap<Activity, ActivityStat> activitiesTemp = new HashMap<Activity, ActivityStat>();
-    for (Contact c : category.getContacts()) {
+    for (Contact c : category.getAllContacts()) {
       for (Activity a : c.getActivities()) {
         ActivityStat as = activitiesTemp.get(a);
         if (as == null) {

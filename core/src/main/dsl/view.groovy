@@ -80,8 +80,8 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
         center {
           
           cartesianChart(model:'Statistics-activities', label:'activityname') {
-            barSeries (valueField:'contactsCountActive', background:'0xE0FF7F50')
-            barSeries (valueField:'contactsCountInactive', background:'0xE0FF6347')            
+            barSeries (valueField:'contactsCountActive', background:'0xE0ADFF2F')
+            barSeries (valueField:'contactsCountInactive', background:'0xE0FFA500')            
           }        
 
         }
@@ -95,12 +95,12 @@ evenGrid('Statistics.view', drivingDimension:'COLUMN', drivingCellCount:2) {
       border (cascadingModels:true, borderType:'TITLED', icon:'bookmark.png') {
         west {
           polarChart (model:'Statistics-categories', label:'category.categoryname', preferredWidth:300) {
-            pieSeries (valueField:'category.allContactsCount', background:['0xE0FF7F50', '0xE0FF6347', '0xE0FF8C00'])
+            pieSeries (valueField:'category.allContactsCount', background:['0xE0ADFF2F', '0xE0FFA500', '0xE087CEEB'])
           }
         }
         center {        
-          cartesianChart(model:'CategoryStat-activities', label:'activity.activityname') {
-            barSeries (valueField:'contactsCount', background:'0xE0FF7F50')
+          cartesianChart(model:'CategoryStat-activities', label:'activity.activityname', axisMinValue:0, axisMaxValue:10) {
+            barSeries (valueField:'contactsCount', background:'0xE0ADFF2F')
           } 
         }
         east {
