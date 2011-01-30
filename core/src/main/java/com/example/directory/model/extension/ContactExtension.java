@@ -22,9 +22,9 @@ public class ContactExtension extends AbstractComponentExtension<Contact> {
     if (getComponent().getLastname()!=null) {
       sb.append(getComponent().getLastname()).append(' ');
     }
-    if (getComponent().getCustomer()!=null) {
-      sb.append("- ").append(getComponent().getCustomer().getCustomername()).append(' ');
-    }
+//    if (getComponent().getCustomer()!=null) {
+//      sb.append("- ").append(getComponent().getCustomer().getCustomername()).append(' ');
+//    }
     return sb.toString().trim();
   }
 }

@@ -1,25 +1,4 @@
 // Implement your application view here using the SJS DSL.
-border('Customer.view',
-  actionMap:'beanModuleActionMap') {
-    north { form (model:'Customer') }
-    center {
-      tabs (renderingOptions:'LABEL') {
-        views {
-          border (cascadingModels:true) {
-            north {
-              table (model:'Customer-contacts', actionMap:'masterDetailActionMap')
-            }
-            center { 
-              border (parent:'Contact.readonly.view') 
-            }
-          }
-
-          table (model:'Customer-addresses', actionMap:'masterDetailActionMap')
-        }
-      }
-    }
-  }
-
 border ('Contact.view', parent:'Contact.readonly.view',  actionMap:'beanModuleActionMap')
 
 border ('Contact.readonly.view', borderType:'TITLED') {

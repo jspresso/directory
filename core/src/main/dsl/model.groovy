@@ -2,37 +2,23 @@
 Interface('Traceable',
   interceptors:'TraceableLifecycleInterceptor', 
   uncloned:['createdTimestamp', 'updatedTimestamp'])
-  {
-    date_time 'createdTimestamp', readOnly:true
-    date_time 'updatedTimestamp', readOnly:true 
-  }
-   
-Entity('Customer', icon:'customer.png',  
-    extend:['Traceable'], 
-    rendered:['customername', 'sinceDate'],
-    ordering:['customername':'ASCENDING']) {
-  string_64 'customername', mandatory:true, unicityScope:'name'
-  date 'sinceDate'//, mandatory:true
-  text 'comments'
-  
-  set 'contacts', ref:'Contact'
-  set 'addresses', ref:'Address'
+{
+  date_time 'createdTimestamp', readOnly:true
+  date_time 'updatedTimestamp', readOnly:true 
 }
 
 Entity ('Contact', icon:'user.png', 
     extend:['Traceable'], 
     extension:'ContactExtension',
-    queryable:['lastname', 'firstname','customer', 'category', 'status'],
-    rendered:['customer.customername', 'lastname', 'firstname', 'category', 'status'],
+    rendered:['lastname', 'firstname', 'category', 'status'],
     ordering:['lastname':'ASCENDING'],
     toString:'fullname', 
-    autoComplete:'lastname') {
+    autoComplete:'lastname')
+{
   
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
   text 'comments'
-  
-  reference 'customer', ref:'Customer', unicityScope:'name', reverse:'Customer-contacts'
   
   set 'phoneNumbers', composition:true, ref:'PhoneNumber'
   reference 'category', ref:'Category', composition:false, reverse:'Category-contacts'
@@ -44,15 +30,17 @@ Entity ('Contact', icon:'user.png',
 }
 
 Entity ('PhoneNumber', icon:'phone.png',
-    queryable:['contact.customer', 'contact.category', 'contact.lastname', 'contact.firstname'],
-    rendered:['number', 'contact.lastname', 'contact.firstname', 'type', 'contact.customer']) { 
-      string_24 'number', mandatory:true, regex:'^[0-9\\+ ]*$', regexSample: '+33 1 123456...'
-      reference 'contact', ref:'Contact', reverse:'Contact-phoneNumbers' 
-      enumeration 'type', values:['mobile', 'home', 'work'], enumName:'number.type'                                                                     
-    }
+  queryable:['contact.category', 'contact.lastname', 'contact.firstname'],
+  rendered:['number', 'contact.lastname', 'contact.firstname', 'type']) 
+{ 
+  string_24 'number', mandatory:true, regex:'^[0-9\\+ ]*$', regexSample: '+33 1 123456...'
+  reference 'contact', ref:'Contact', reverse:'Contact-phoneNumbers' 
+  enumeration 'type', values:['mobile', 'home', 'work'], enumName:'number.type'                                                                     
+}
 
 Entity ('Category', icon:'bookmark.png', 
-  extension:'CategoryExtension') {   
+  extension:'CategoryExtension')
+{   
   string_64 'categoryname', mandatory:true  
   
   set 'subCategories', ref:'Category', composition:false          
@@ -64,7 +52,8 @@ Entity ('Category', icon:'bookmark.png',
   integer 'allContactsCount', computed:true
 }         
 
-Entity ('Address', icon:'address.png') {
+Entity ('Address', icon:'address.png') 
+{
   string_256 'street', mandatory:true
   string_128 'city', mandatory:true
   string_16 'zip', mandatory:true
@@ -72,7 +61,8 @@ Entity ('Address', icon:'address.png') {
 }                
 
 Entity ('Activity', icon:'activity.png',
-  extension:'ActivityExtension') {
+  extension:'ActivityExtension') 
+{
   string_64 'activityname', mandatory:true
   string_256 'activitydescription' 
   
@@ -83,7 +73,9 @@ Entity ('Activity', icon:'activity.png',
   integer 'contactsCountInactive', computed:true
 }
 
-
+/**
+ * Components
+ */
 namespace('bean') {
 
   Component ('Statistics', icon:'statistics.png') {
@@ -99,7 +91,6 @@ namespace('bean') {
   Component ('ActivityStat') {
     reference 'activity', ref:'Activity', readOnly:true
     set 'contacts', ref:'Contact', readOnly:true
-  
     integer 'contactsCount', readOnly:true
   }
   
