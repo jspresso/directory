@@ -86,7 +86,8 @@ Entity ('Address',
 }                
 
 Entity ('Activity', icon:'activity.png',
-  extension:'ActivityExtension')
+  extension:'ActivityExtension', 
+  rendered:['activityname', 'activitydescription'])
 {
   string_64 'activityname', mandatory:true
   string_256 'activitydescription' 

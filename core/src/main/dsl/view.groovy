@@ -9,13 +9,13 @@ border('Customer.view',
         views {
           
           border (cascadingModels:true) {
-            north {
+            center {
               table (model:'Customer-contacts', 
                 actionMap:'masterDetailChooseActionMap', 
-                columns:['lastname', 'firstname', 'category', 'status'])
+                columns:['fullname', 'category', 'status'])
             }
-            center { 
-              border (parent:'Contact.readonly.view') 
+            east { 
+              border (parent:'Contact.readonly.view', preferredWidth:450) 
             }
           }
 
