@@ -13,12 +13,25 @@ import org.jspresso.framework.model.descriptor.IModelDescriptorAware;
 import org.jspresso.framework.util.accessor.IAccessorFactory;
 import org.jspresso.framework.util.accessor.ICollectionAccessor;
 
+/**
+ * Remove one detail from its master
+ * 
+ * @author Maxime Hamm
+ * @param <E>
+ *          the actual gui component type used.
+ * @param <F>
+ *          the actual icon type used.
+ * @param <G>
+ *          the actual action type used.
+ */
 public class UnlinkComponentAction<E, F, G> extends FrontendAction<E, F, G> {
-
+  
+  /**
+   * execute action 
+   */
   @Override
   public boolean execute(IActionHandler actionHandler,
       Map<String, Object> context) {
-
 
     ICollectionConnector collectionConnector = (ICollectionConnector)getModelConnector(context);
     if (collectionConnector == null) {
