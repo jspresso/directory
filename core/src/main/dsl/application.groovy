@@ -18,6 +18,7 @@ frontendBuilder.Front(){
   namespace('com.example.directory'){
     view {
       include(project.properties['srcDir']+'/view.groovy')
+      include(project.properties['srcDir']+'/viewTools.groovy')
     }
     frontend {
       include(project.properties['srcDir']+'/frontend.groovy')
