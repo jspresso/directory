@@ -1,36 +1,11 @@
 // Implement your application view here using the SJS DSL.
-border('Customer.view',
-  actionMap:'beanModuleActionMap') {
-    north { 
-      form (model:'Customer', columnCount:3) 
-    }
-    center {
-      tabs (renderingOptions:'LABEL') {
-        views {
-          
-          border (cascadingModels:true) {
-            center {
-              table (model:'Customer-contacts', 
-                actionMap:'masterDetailChooseActionMap', 
-                columns:['fullname', 'category', 'status'])
-            }
-            east { 
-              border (parent:'Contact.readonly.view', preferredWidth:450) 
-            }
-          }
-
-          table (model:'Customer-addresses', 
-            actionMap:'masterDetailActionMap')
-        }
-      }
-    }
-  }
-
-border ('Contact.view', parent:'Contact.readonly.view',  actionMap:'beanModuleActionMap')
+border ('Contact.view', parent:'Contact.readonly.view',  
+  actionMap:'beanModuleActionMap')
 
 border ('Contact.readonly.view', borderType:'TITLED') {
   north {
-    form (model:'Contact', columnCount:3, fields:['lastname', 'firstname', 'status'])
+    form (model:'Contact', columnCount:3,
+      fields:['lastname', 'firstname', 'status'])
   }
   center {
     tabs (renderingOptions:'LABEL') {
@@ -52,7 +27,8 @@ border ('Contact.readonly.view', borderType:'TITLED') {
 
 split_vertical('Category.view', cascadingModels:true) {
   top {
-    table (validationModel:'Category', parent:'decoratedView', actionMap:'filterableBeanCollectionModuleActionMap')
+    table (validationModel:'Category', parent:'decoratedView', 
+      actionMap:'filterableBeanCollectionModuleActionMap')
   }
   bottom {
     split_horizontal {
@@ -74,7 +50,9 @@ treeNode('Category-subCategories.treenode',
 table ('PhoneNumber.table',
   parent:'decoratedView', readOnly:true) {
     actionMap {
-      actionList('QUERY') {  action ref:'queryModuleFilterAction' }
+      actionList('QUERY') {  
+        action ref:'queryModuleFilterAction' 
+      }
     }
   }
 

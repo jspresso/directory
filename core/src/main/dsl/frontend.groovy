@@ -11,10 +11,6 @@ controller ('directory.controller',
 workspace('directory.workspace',
     icon:'directory.png') {
 
-      filterModule('customer.module',
-          component:'Customer',
-          detailView:'Customer.view')
-
       filterModule('contact.module',
           component:'Contact',
           detailView:'Contact.view')
