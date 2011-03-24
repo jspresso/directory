@@ -6,11 +6,29 @@ Interface('Traceable',
   date_time 'createdTimestamp', readOnly:true
   date_time 'updatedTimestamp', readOnly:true 
 }
+   
+Entity('Customer', 
+  extend:['Traceable'],
+  extension:'CustomerExtension', 
+  icon:'customer.png',   
+  rendered:['customername', 'sinceDate', 'mainAddress.fullDescription'],
+  ordering:['customername':'ASCENDING']) 
+{
+  string_64 'customername', mandatory:true, unicityScope:'name'
+  date 'sinceDate'
+  text 'comments'
+  
+  set 'contacts', ref:'Contact'
+  set 'addresses', ref:'Address'
+  
+  reference 'mainAddress', ref:'Address', computed:true
+}
 
 Entity ('Contact', icon:'user.png', 
-  extend:['Traceable'],  
+  extend:['Traceable'], 
   extension:'ContactExtension',
-  rendered:['lastname', 'firstname', 'category', 'status'],
+  queryable:['lastname', 'firstname','customer', 'category', 'status'],
+  rendered:['customer.customername', 'lastname', 'firstname', 'category', 'status'],
   ordering:['lastname':'ASCENDING'],
   toString:'fullname', 
   autoComplete:'lastname') 
@@ -19,6 +37,8 @@ Entity ('Contact', icon:'user.png',
   string_64 'lastname', mandatory:true, unicityScope:'name'
   string_64 'firstname', mandatory:true, unicityScope:'name'
   text 'comments'
+  
+  reference 'customer', ref:'Customer', unicityScope:'name', reverse:'Customer-contacts'
   
   set 'phoneNumbers', composition:true, ref:'PhoneNumber'
   reference 'category', ref:'Category', composition:false, reverse:'Category-contacts'
@@ -30,8 +50,8 @@ Entity ('Contact', icon:'user.png',
 }
 
 Entity ('PhoneNumber', icon:'phone.png',
-  queryable:['type', 'contact.category', 'contact.lastname', 'contact.firstname'],
-  rendered:['number', 'contact.lastname', 'contact.firstname', 'type'])
+  queryable:['contact.customer', 'contact.category', 'contact.lastname', 'contact.firstname'],
+  rendered:['number', 'contact.lastname', 'contact.firstname', 'type', 'contact.customer'])
 { 
   string_24 'number', mandatory:true, regex:'^[0-9\\+ ]*$', regexSample: '+33 1 123456...'
   reference 'contact', ref:'Contact', reverse:'Contact-phoneNumbers' 
