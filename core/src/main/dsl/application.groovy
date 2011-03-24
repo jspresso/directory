@@ -6,7 +6,7 @@ def domainBuilder = new Domain()
 String errorOutput = project.properties['outputDir']+"/../../sjsErrors.log";
 
 domainBuilder.Domain(projectName:'directory', mute:true) {
-  namespace('fr.gefco.directory') {
+  namespace('com.example.directory') {
     include(project.properties['srcDir']+'/model.groovy')
   }
 }
@@ -18,10 +18,9 @@ if(!domainBuilder.isOK()) {
 
 def frontendBuilder = new Front(domainBuilder.getReferenceDomain())
 frontendBuilder.Front(){
-  namespace('fr.gefco.directory'){
+  namespace('com.example.directory'){
     view {
       include(project.properties['srcDir']+'/view.groovy')
-	  include(project.properties['srcDir']+'/viewTools.groovy')
     }
     frontend {
       include(project.properties['srcDir']+'/frontend.groovy')
