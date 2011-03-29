@@ -24,6 +24,7 @@
       name="basenames">
       <list>
         <value>com.example.directory.i18n.Messages</value>
+        <value>org.jspresso.contrib.i18n.Messages</value>
       </list>
     </property>
   </bean>
