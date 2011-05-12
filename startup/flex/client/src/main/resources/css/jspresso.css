@@ -447,22 +447,6 @@ ComboBox
 	icon: ClassReference(null);
 }
 
-RadioButton
-{
-	disabledIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_disabledIcon");
-	downIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_downIcon");
-	overIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_overIcon");
-	selectedDisabledIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedDisabledIcon");
-	selectedDownIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedDownIcon");
-	selectedOverIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedOverIcon");
-	selectedUpIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_selectedUpIcon");
-	upIcon: Embed(source="../images/skin-illustrator/radio-button-gefco.swf", symbol="RadioButton_upIcon");
-	color:#4B4B4B;
-	textRollOverColor:#4B4B4B;
-	textSelectedColor:#4B4B4B;
-	fontFamily:Arial;
-}
-
 ToolTip
 {
   /*borderSkin: Embed(source="../images/skin-illustrator/info-bulle.swf", symbol="ToolTip_borderSkin");*/
@@ -530,15 +514,6 @@ DateField
 	overSkin: Embed(source="../images/DateChooser/DateField_overSkin.png");
 	upSkin: Embed(source="../images/DateChooser/DateField_upSkin.png");
 	icon: ClassReference(null);
-}
-
-DateTimeField
-{
-  disabledSkin: Embed(source="../images/DateChooser/DateField_disabledSkin.png");
-  downSkin: Embed(source="../images/DateChooser/DateField_downSkin.png");
-  overSkin: Embed(source="../images/DateChooser/DateField_overSkin.png");
-  upSkin: Embed(source="../images/DateChooser/DateField_upSkin.png");
-  icon: ClassReference(null);
 }
 
 RichTextEditor
