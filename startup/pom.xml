@@ -11,7 +11,6 @@
   <name>Example Application - Startup</name>
   <modules>
     <module>swing</module>
-    <module>wings</module>
     <module>remote</module>
     <module>flex</module>
     <!-- <module>qooxdoo</module> -->

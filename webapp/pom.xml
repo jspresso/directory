@@ -10,12 +10,6 @@
   <packaging>war</packaging>
   <name>Example Application - Webapp</name>
   <dependencies>
-    <!-- 
-    <dependency>
-      <groupId>com.example.directory</groupId>
-      <artifactId>directory-startup-wings</artifactId>
-    </dependency>
-     -->
     <dependency>
       <groupId>com.example.directory</groupId>
       <artifactId>directory-startup-remote</artifactId>
@@ -141,8 +135,6 @@
         <configuration>
           <warName>${project.artifactId}</warName>
           <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
-          <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
-          <warSourceExcludes>**/webstart/**,**/*-web.xml</warSourceExcludes>
         </configuration>
       </plugin>
       <plugin>
@@ -213,85 +205,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <!--
-    <profile>
-      <id>ulc</id>
-      <dependencies>
-        <dependency>
-          <groupId>com.example.directory</groupId>
-          <artifactId>directory-startup-ulc</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.jspresso.framework</groupId>
-          <artifactId>jspresso-ulc-components-client</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>ulc</groupId>
-          <artifactId>ulc-deployment-key</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.jvnet.substance</groupId>
-          <artifactId>substance</artifactId>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <configuration>
-              <warName>${project.artifactId}</warName>
-              <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
-              <webXml>${basedir}/src/main/webapp/WEB-INF/ulc-web.xml</webXml>
-              <warSourceExcludes>**/*-web.xml</warSourceExcludes>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>copy-dependencies</id>
-                <phase>prepare-package</phase>
-                <goals>
-                  <goal>copy-dependencies</goal>
-                </goals>
-                <configuration>
-                  <outputDirectory>${project.build.directory}/${project.artifactId}/lib</outputDirectory>
-                  <includeArtifactIds>ulc-base-trusted,ulc-base-client,ulc-jnlp-client,ulc-servlet-client,nachocalendar,jedit-syntax,jspresso-util,jspresso-ulc-components-shared,jspresso-ulc-components-client,jspresso-swing-components,jspresso-app-launch-core,jspresso-app-launch-ulc,joda-time,substance</includeArtifactIds>
-                  <stripVersion>true</stripVersion>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-dependencies</id>
-                <phase>prepare-package</phase>
-                <configuration>
-                  <tasks>
-                    <signjar alias="key-alias" keystore="conf/keystore.jks" storepass="keystore-password" keypass="key-password">
-                      <fileset dir="${project.build.directory}/${project.artifactId}">
-                        <include name="lib/*.jar" />
-                      </fileset>
-                    </signjar>
-                  </tasks>
-                </configuration>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    -->
-  </profiles>
 </project>
