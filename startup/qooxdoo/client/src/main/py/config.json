@@ -1,0 +1,108 @@
+{
+  "name"    : "Example Application",
+
+  "include" :
+  [
+    {
+      "path" : "${QOOXDOO_PATH}/tool/data/config/application.json"
+    }
+    ,
+    {
+      "path" : "${TARGET}/jspresso-qooxdoo-client-zip/py/library.json",
+      "as"   : "jspresso-qooxdoo"
+    }
+    ,
+    {
+      "path" : "${TARGET}/jspresso-ext-qooxdoo-theme-zip/py/library.json",
+      "as"   : "jspresso-ext-qooxdoo-theme"
+    }
+  ],
+
+  "export" :
+  [
+    "api",
+    "build",
+    "clean",
+    "distclean",
+    "fix",
+    "inspector",
+    "lint",
+    "migration",
+    "pretty",
+    "profiling",
+    "source",
+    "source-all",
+    "test",
+    "test-source",
+    "translation"
+  ],
+
+  "let" :
+  {
+    "TARGET"       : "../../../target",
+    "APPLICATION"  : "com.example.directory.startup.qooxdoo",
+    "QOOXDOO_PATH" : "../../../target/qooxdoo-sdk",
+    "QXTHEME"      : "com.example.directory.startup.qooxdoo.theme.Theme",
+    "QXICONTHEME"  : ["Oxygen"],
+    "API_EXCLUDE"  : ["qx.legacy.*","qx.test.*"],
+    "LOCALES"      : ["en","fr"],
+    "ROOT"         : "..",
+    "BUILD_PATH"   : "${TARGET}/web"
+  },
+
+  // You only need to edit the remainder of this file, if you want to customize
+  // specific jobs, or add own job definitions.
+
+  "jobs" :
+  {
+    "common" : 
+    {
+      "cache" :
+      {
+        "compile"     : "${TARGET}/cache",
+        "downloads"   : "${TARGET}/cache/downloads"
+      }
+    },
+    "libraries" : 
+    {
+      "extend" : ["jspresso-qooxdoo::libraries","jspresso-ext-qooxdoo-theme::libraries"],
+      
+      "library" :
+      [
+        {
+          "manifest" : "${TARGET}/jspresso-qooxdoo-client-zip/Manifest.json"
+        },
+        {
+          "manifest" : "${TARGET}/jspresso-ext-qooxdoo-theme-zip/Manifest.json"
+        }
+      ]
+    },
+    "build-files" :
+    {
+      "copy-files" :
+      {
+        "source" : "${ROOT}/html"
+      }
+    },
+    "source-script" :
+    {
+      "compile-options" :
+      {
+        "uris" : 
+        {
+          "add-nocache-param" : false
+        }
+      }
+    },
+    "source-all-script" :
+    {
+      "compile-options" :
+      {
+        "uris" : 
+        {
+          "add-nocache-param" : false
+        }
+      }
+    }
+  }
+}
