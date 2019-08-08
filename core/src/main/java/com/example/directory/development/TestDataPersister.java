@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
 
+import org.jspresso.framework.application.startup.development.AbstractHibernateTestDataPersister;
 import org.jspresso.framework.application.startup.development.AbstractTestDataPersister;
 import org.jspresso.framework.model.entity.IEntity;
 import org.springframework.beans.factory.BeanFactory;
@@ -20,7 +21,7 @@ import com.example.directory.model.PhoneNumber;
 /**
  * Persists some test data for the application.
  */
-public class TestDataPersister extends AbstractTestDataPersister {
+public class TestDataPersister extends AbstractHibernateTestDataPersister {
 
   HashMap<String, Category> categories;
   HashMap<String, Activity> activities; 
@@ -78,11 +79,8 @@ public class TestDataPersister extends AbstractTestDataPersister {
     super(beanFactory);
   }
 
-  /**
-   * Creates some test data using the passed in Spring application context.
-   */
   @Override
-  public void persistTestData() {
+  protected void createAndPersistTestData() {
     
     categories = createCategories();
     activities = createActivities();

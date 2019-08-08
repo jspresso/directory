@@ -17,19 +17,6 @@
     </dependency>
     <dependency>
       <groupId>com.example.directory</groupId>
-      <artifactId>directory-startup-flex-config</artifactId>
-      <classifier>resources</classifier>
-      <type>zip</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.example.directory</groupId>
-      <artifactId>directory-startup-flex-client</artifactId>
-      <type>swf</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.example.directory</groupId>
       <artifactId>directory-startup-qooxdoo-server</artifactId>
     </dependency>
     <dependency>
@@ -56,45 +43,57 @@
       <artifactId>commons-collections</artifactId>
     </dependency>
     <dependency>
-      <groupId>commons-pool</groupId>
-      <artifactId>commons-pool</artifactId>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
     </dependency>
     <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>hsqldb</groupId>
+      <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.adobe.blazeds</groupId>
-      <artifactId>blazeds-common</artifactId>
+      <groupId>org.apache.flex.blazeds</groupId>
+      <artifactId>flex-messaging-remoting</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.adobe.blazeds</groupId>
-      <artifactId>blazeds-core</artifactId>
+      <groupId>org.apache.flex.blazeds</groupId>
+      <artifactId>flex-messaging-proxy</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.adobe.blazeds</groupId>
-      <artifactId>blazeds-remoting</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.adobe.blazeds</groupId>
-      <artifactId>blazeds-proxy</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>commons-httpclient</groupId>
-      <artifactId>commons-httpclient</artifactId>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-jaxrs</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-jaxrs2</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+    </dependency>
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
@@ -137,26 +136,6 @@
           <warName>${project.artifactId}</warName>
           <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.flexmojos</groupId>
-        <artifactId>flexmojos-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>copy-flex-resources</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <wrapperArtifact>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>directory-startup-flex-client</artifactId>
-              </wrapperArtifact>
-              <stripVersion>true</stripVersion>
-              <webappDirectory>${project.build.directory}/${project.artifactId}/flex</webappDirectory>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
