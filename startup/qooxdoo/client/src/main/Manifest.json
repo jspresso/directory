@@ -1,24 +1,21 @@
 {
   "info" : 
   {
-    "name" : "Example Application",
+    "name" : "directory",
 
-    "summary" : "",
-    "description" : "",
+    "summary" : "Directory application",
+    "description" : "This is the Directory application",
     
-    "homepage" : "http://www.example.com",
+    "homepage" : "http://www.jspresso.org/",
 
-    "license" : "",
+    "license" : "LGPL V3",
     "authors" : 
     [
       {
-        "name" : "",
-        "email" : ""
+        "name" : "Vincent Vandenschrick (vvandens)",
+        "email" : "vvandens@jspresso.org"
       }
-    ],
-
-    "version" : "1.0-SNAPSHOT",
-    "qooxdoo-versions": ["0.8.2","1.1","1.2","1.3"]
+    ]
   },
   
   "provides" : 

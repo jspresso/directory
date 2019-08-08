@@ -8,8 +8,8 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>directory-startup-qooxdoo-client</artifactId>
-  <packaging>pom</packaging>
-  <name>Example Application - Startup - Qooxdoo - Client</name>
+  <packaging>jar</packaging>
+  <name>Example Application - Startup Qooxdoo Client</name>
 
   <dependencies>
     <dependency>
@@ -20,7 +20,7 @@
     </dependency>
     <dependency>
       <groupId>org.jspresso.framework</groupId>
-      <artifactId>jspresso-qooxdoo-client</artifactId>
+      <artifactId>jspresso-ext-qooxdoo</artifactId>
       <type>zip</type>
       <scope>provided</scope>
     </dependency>
@@ -30,9 +30,24 @@
       <type>zip</type>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jspresso.framework</groupId>
+      <artifactId>jspresso-ext-qooxdoo-legacy-theme</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
-  
+
   <build>
+    <resources>
+      <resource>
+        <directory>target/web</directory>
+      </resource>
+      <resource>
+        <directory>src/main/resources/RichFilemanager</directory>
+        <targetPath>RichFilemanager</targetPath>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -40,7 +55,7 @@
         <executions>
           <execution>
             <id>unpack-qooxdoo-sdk</id>
-            <phase>prepare-package</phase>
+            <phase>generate-resources</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -51,7 +66,7 @@
           </execution>
           <execution>
             <id>unpack-jspresso-qooxdoo</id>
-            <phase>prepare-package</phase>
+            <phase>generate-resources</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -64,7 +79,7 @@
           </execution>
           <execution>
             <id>unpack-qooxdoo-contribs</id>
-            <phase>prepare-package</phase>
+            <phase>generate-resources</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
@@ -87,7 +102,7 @@
             <goals>
               <goal>exec</goal>
             </goals>
-            <phase>prepare-package</phase>
+            <phase>generate-resources</phase>
           </execution>
         </executions>
         <configuration>
@@ -95,7 +110,7 @@
           <workingDirectory>src/main/py</workingDirectory>
           <arguments>
             <argument>${project.build.directory}/qooxdoo-sdk/tool/bin/generator.py</argument>
-            <argument>source-all,build</argument>
+            <argument>source,build,source-mobile,build-mobile</argument>
           </arguments>
         </configuration>
       </plugin>
@@ -108,65 +123,28 @@
             <goals>
               <goal>run</goal>
             </goals>
-            <phase>prepare-package</phase>
+            <phase>generate-resources</phase>
             <configuration>
-              <tasks>
-                <property name="web-debug.dir" value="${project.build.directory}/web-debug" />
-                <property name="js.source.dir" value="${basedir}/src/main/source" />
-                <property name="html.source.dir" value="${basedir}/src/main/html" />
-                <mkdir dir="" />
-                <copy todir="${web-debug.dir}">
-                  <fileset dir="${js.source.dir}">
-                    <include name="**/*.js" />
-                  </fileset>
-                  <fileset dir="${html.source.dir}">
-                    <include name="**/*.html" />
-                  </fileset>
-                </copy>
-                <replace dir="${web-debug.dir}" token="../../../../target" value="file:///${project.build.directory}">
-                  <include name="**/*.js" />
+              <target>
+                <property name="web-debug.dir" value="${project.build.directory}/web-debug"/>
+                <mkdir dir="${web-debug.dir}"/>
+                <replace dir="${web-debug.dir}" token="../../../../target" value="../../target">
+                  <include name="**/*.js"/>
                 </replace>
-                <replace dir="${web-debug.dir}" token="../../" value="file:///${basedir}/src/main/">
-                  <include name="**/*.js" />
+                <replace dir="${web-debug.dir}" token="../../../target" value="../../target">
+                  <include name="**/*.js"/>
+                </replace>
+                <replace dir="${web-debug.dir}" token="../../js" value="../../src/main/js">
+                  <include name="**/*.js"/>
                 </replace>
                 <replace dir="${web-debug.dir}" token="\" value="/">
-                  <include name="**/*.js" />
+                  <include name="**/*.js"/>
                 </replace>
                 <replace dir="${web-debug.dir}" token="//(" value="\/(">
-                  <include name="**/*.js" />
+                  <include name="**/*.js"/>
                 </replace>
-                <delete dir="${js.source.dir}" />
-              </tasks>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-qooxdoo-web-resources</id>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <descriptors>
-                <descriptor>${basedir}/src/main/assembly/web-resources.xml</descriptor>
-              </descriptors>
-            </configuration>
-          </execution>
-          <execution>
-            <id>attach-qooxdoo-sources</id>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <descriptors>
-                <descriptor>${basedir}/src/main/assembly/sources.xml</descriptor>
-              </descriptors>
+                <delete dir="${project.build.directory}/antrun"/>
+              </target>
             </configuration>
           </execution>
         </executions>

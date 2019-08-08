@@ -11,9 +11,7 @@
   <packaging>pom</packaging>
   <name>Example Application - Startup</name>
   <modules>
-    <module>swing</module>
     <module>remote</module>
-    <module>flex</module>
     <module>qooxdoo</module>
   </modules>
 </project>

@@ -17,14 +17,7 @@
     </dependency>
     <dependency>
       <groupId>com.example.directory</groupId>
-      <artifactId>directory-startup-qooxdoo-server</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.example.directory</groupId>
       <artifactId>directory-startup-qooxdoo-client</artifactId>
-      <classifier>web-resources</classifier>
-      <type>zip</type>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.example.directory</groupId>
@@ -86,55 +79,27 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <scope>test</scope>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
     <plugins>
-      <plugin>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>unpack-flex-config</id>
-            <goals>
-              <goal>unpack-dependencies</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/flex</outputDirectory>
-              <includeArtifactIds>directory-startup-flex-config</includeArtifactIds>
-              <includeClassifiers>resources</includeClassifiers>
-              <excludeTransitive>true</excludeTransitive>
-            </configuration>
-          </execution>
-          <execution>
-            <id>unpack-qooxdoo-dependencies</id>
-            <goals>
-              <goal>unpack-dependencies</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <outputDirectory>${project.build.directory}/${project.artifactId}/qooxdoo</outputDirectory>
-              <includeArtifactIds>directory-startup-qooxdoo-client</includeArtifactIds>
-              <includeClassifiers>web-resources</includeClassifiers>
-              <excludeTransitive>true</excludeTransitive>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
           <warName>${project.artifactId}</warName>
           <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+          <overlays>
+            <overlay>
+              <groupId>com.example.directory</groupId>
+              <artifactId>directory-startup-qooxdoo-client</artifactId>
+              <type>jar</type>
+              <targetPath>html5</targetPath>
+            </overlay>
+          </overlays>
         </configuration>
       </plugin>
     </plugins>

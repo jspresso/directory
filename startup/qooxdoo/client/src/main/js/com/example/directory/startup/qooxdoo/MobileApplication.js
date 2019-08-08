@@ -17,11 +17,11 @@
  *  along with Jspresso.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * This is the main application class
+ * This is the main mobile application class
  */
-qx.Class.define("com.example.directory.startup.qooxdoo.Application",
+qx.Class.define("com.example.directory.startup.qooxdoo.MobileApplication",
 {
-  extend : org.jspresso.framework.application.frontend.Application,
+  extend : org.jspresso.framework.application.frontend.MobileApplication,
 
 
 
@@ -38,13 +38,13 @@ qx.Class.define("com.example.directory.startup.qooxdoo.Application",
       if (qx.core.Environment.get("qx.debug")) {
         remoteController = new org.jspresso.framework.io.Rpc(
             "http://localhost:9080/directory-webapp/.qxrpc",
-            "com.example.directory.startup.remote.RemoteApplicationStartup"
+            "com.example.directory.startup.remote.RemoteMobileApplicationStartup"
         );
-        remoteController.setCrossDomain(true);
+        //remoteController.setCrossDomain(true);
       } else {
         remoteController = new org.jspresso.framework.io.Rpc(
             org.jspresso.framework.io.Rpc.makeServerURL(),
-            "com.example.directory.startup.remote.RemoteApplicationStartup"
+            "com.example.directory.startup.remote.RemoteMobileApplicationStartup"
         );
       }
       remoteController.setTimeout(600000);

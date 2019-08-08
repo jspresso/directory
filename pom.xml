@@ -4,12 +4,18 @@
   <parent>
     <groupId>org.jspresso.framework</groupId>
     <artifactId>jspresso-ext-root</artifactId>
-    <version>3.5-SNAPSHOT</version>
+    <version>6.0.0-SNAPSHOT</version>
+    <relativePath/>
   </parent>
   <groupId>com.example.directory</groupId>
   <artifactId>directory</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
+
+  <properties>
+     <swagger.version>2.0.6</swagger.version>
+  </properties>
+
   <name>Example Application</name>
   <description>Example Application Description</description>
   <url>http://www.example.com</url>
@@ -85,41 +91,26 @@
       </dependency>
       <dependency>
         <groupId>com.example.directory</groupId>
-        <artifactId>directory-startup-flex-config</artifactId>
-        <version>${project.version}</version>
-        <classifier>resources</classifier>
-        <type>zip</type>
-      </dependency>
-      <dependency>
-        <groupId>com.example.directory</groupId>
-        <artifactId>directory-startup-flex-client</artifactId>
-        <version>${project.version}</version>
-        <type>swf</type>
-      </dependency>
-      <dependency>
-        <groupId>com.example.directory</groupId>
-        <artifactId>directory-startup-qooxdoo-server</artifactId>
+        <artifactId>directory-startup-qooxdoo</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.example.directory</groupId>
         <artifactId>directory-startup-qooxdoo-client</artifactId>
         <version>${project.version}</version>
-        <classifier>web-resources</classifier>
-        <type>zip</type>
       </dependency>
       <dependency>
         <groupId>com.example.directory</groupId>
         <artifactId>directory-webservices</artifactId>
         <version>${project.version}</version>
       </dependency>
-      
+
       <dependency>
-				<groupId>org.jspresso.contrib</groupId>
-				<artifactId>jspresso-extensions-core</artifactId>
-				<version>1.0-SNAPSHOT</version>
+        <groupId>org.jspresso.contrib</groupId>
+        <artifactId>jspresso-extensions-core</artifactId>
+        <version>1.0-SNAPSHOT</version>
       </dependency>
-      
+
       <dependency>
         <groupId>com.adobe.flex.framework</groupId>
         <artifactId>datavisualization</artifactId>
@@ -145,8 +136,19 @@
         <type>rb.swc</type>
         <version>2.5</version>
       </dependency>
-      
-      
+
+      <!-- Swagger -->
+      <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2</artifactId>
+        <version>${swagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+        <version>${swagger.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
   <build>
